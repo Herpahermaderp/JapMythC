@@ -24,7 +24,7 @@ public class ItemCharm extends Item {
 	@Override
 	public void registerIcons(IIconRegister reg) {
 		
-		for (int i = 0; i < 3; i ++) {
+		for (int i = 0; i < 4; i ++) {
 			
 			this.icons[i] = reg.registerIcon(Reference.ID + ":" + "charm_" + i);
 		}
@@ -44,7 +44,7 @@ public class ItemCharm extends Item {
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		
-		for(int i = 0; i < 3; i ++) {
+		for(int i = 0; i < 4; i ++) {
 			
 			list.add(new ItemStack(item, 1, i));
 		}
