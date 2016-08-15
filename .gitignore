@@ -8,6 +8,7 @@
 /gradle
 /logs
 /saves
+/screenshots
 .classpath
 .project
 build.gradle
