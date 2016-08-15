@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "hhdjmc",
+  "name": "Japanese Mythology and Culture",
+  "description": "A mod that adds various things from Japanese mythology and culture.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Herpahermaderp"],
+  "credits": "Herpahermaderp",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
