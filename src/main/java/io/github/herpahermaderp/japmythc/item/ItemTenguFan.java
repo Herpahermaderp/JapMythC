@@ -11,4 +11,6 @@ public class ItemTenguFan extends ItemSword {
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
 	}
+	
+	
 }

@@ -20,5 +20,6 @@ public class ModItems {
 		GameRegistry.registerItem(bloomFan = new ItemBloomFan("blooming_fan"), "blooming_fan");
 		GameRegistry.registerItem(charm = new ItemCharm("charm"), "charm");
 		GameRegistry.registerItem(tenguFan = new ItemTenguFan("tengu_fan", FANTENGU), "tengu_fan");
+		GameRegistry.registerItem(windFan = new ItemWindFan("wind_fan"), "wind_fan");
 	}
 }
