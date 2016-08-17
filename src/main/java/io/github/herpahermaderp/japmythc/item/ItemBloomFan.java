@@ -7,6 +7,7 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -37,6 +38,8 @@ public class ItemBloomFan extends Item {
 			if(ItemBloomFan.applyBonemeal(stack, world, par1, par2, par3, player)) {
 		
 				stack.damageItem(1, player);
+				
+				player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
 				
 				if (!world.isRemote) {
             
@@ -73,6 +76,24 @@ public class ItemBloomFan extends Item {
 	public int getMaxDamage(ItemStack stack) {
 		
 		return 132;
+	}
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		
+        return EnumAction.block;
+    }
+	
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+        
+		return 5;
+    }
+	
+	@Override
+	public boolean isFull3D() {
+		
+		return true;
 	}
 	
 	public static boolean applyBonemeal(ItemStack stack, World world, int par1, int par2, int par3, EntityPlayer player)

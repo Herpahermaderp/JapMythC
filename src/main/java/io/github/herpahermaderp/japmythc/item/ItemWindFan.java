@@ -8,6 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -41,8 +42,11 @@ public class ItemWindFan extends Item {
 			world.spawnParticle("cloud", fanBox.minX + world.rand.nextFloat() * (fanBox.maxX - fanBox.minX), fanBox.minY + world.rand.nextFloat() * (fanBox.maxY - fanBox.minY), fanBox.minZ + world.rand.nextFloat() * (fanBox.maxZ - fanBox.minZ), lookVec.xCoord, lookVec.yCoord, lookVec.zCoord);
 		}
 		
+		player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
+		
 		return stack;
 	}
+	
 	@Override
 	public boolean getIsRepairable(ItemStack par1stack, ItemStack par2stack) {
 		
@@ -66,6 +70,24 @@ public class ItemWindFan extends Item {
 	public int getMaxDamage(ItemStack stack) {
 		
 		return 132;
+	}
+	
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		
+        return EnumAction.block;
+    }
+	
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+        
+		return 5;
+    }
+	
+	@Override
+	public boolean isFull3D() {
+		
+		return true;
 	}
 	
 	private void fanEntitiesAABB(World world, EntityPlayer player, AxisAlignedBB fanBox) {
