@@ -13,7 +13,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 
-public class ItemKatana extends ItemSword {
+public class ItemKatana extends ItemSword implements IExtendedReach {
 	
 	public EntityLivingBase renderViewEntity;
 	public EntityLivingBase entityLB;
@@ -24,6 +24,12 @@ public class ItemKatana extends ItemSword {
 		super(material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+	}
+	
+	@Override
+	public float getReach() {
+		
+		return 20.0F;
 	}
 	
 	public static MovingObjectPosition getMouseOverExtended(float dist) {

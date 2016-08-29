@@ -7,6 +7,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import io.github.herpahermaderp.japmythc.proxy.CommonProxy;
 
@@ -19,6 +20,8 @@ public class JapMythC {
 	
 	@Instance
 	public static JapMythC instance;
+	
+	public static SimpleNetworkWrapper network;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
