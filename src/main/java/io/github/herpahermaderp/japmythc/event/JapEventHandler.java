@@ -11,8 +11,6 @@ import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 
@@ -48,11 +46,11 @@ public class JapEventHandler {
 					if(ieri != null) {
 						
 						float reach = ieri.getReach();
-						MovingObjectPosition mov = ItemKatana.getMouseOverExtended(reach);
+						MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
 						
 						if(mov != null) {
 							
-							EntityPlayerMP player = (EntityPlayerMP)EntityThrowable.getKUser();
+							
 						}
 					}
 				}

@@ -5,7 +5,9 @@ import java.util.List;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.herpahermaderp.japmythc.lib.Reference;
+import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemSword;
@@ -18,6 +20,8 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 	public EntityLivingBase renderViewEntity;
 	public EntityLivingBase entityLB;
 	public static ItemKatana theClass;
+	
+	KeyBinding[] keyBindings = ClientProxy.keyBindings;
 	
 	public ItemKatana(String unlocalizedName, ToolMaterial material) {
 		
@@ -32,7 +36,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 		return 20.0F;
 	}
 	
-	public static MovingObjectPosition getMouseOverExtended(float dist) {
+	public static MovingObjectPosition getTeleportReach(float dist) {
 	    
 		ItemKatana ik = ItemKatana.getIK();
 		Minecraft mc = Minecraft.getMinecraft();
