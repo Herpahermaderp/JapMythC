@@ -5,8 +5,10 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent.KeyInputEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import io.github.herpahermaderp.japmythc.JapMythC;
 import io.github.herpahermaderp.japmythc.item.IExtendedReach;
 import io.github.herpahermaderp.japmythc.item.ItemKatana;
+import io.github.herpahermaderp.japmythc.network.client.MessageKatanaTeleport;
 import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
@@ -50,7 +52,13 @@ public class JapEventHandler {
 						
 						if(mov != null) {
 							
-							
+							if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
+								
+								if(mov.entityHit != thePlayer) {
+									
+									JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));
+								}
+							}
 						}
 					}
 				}

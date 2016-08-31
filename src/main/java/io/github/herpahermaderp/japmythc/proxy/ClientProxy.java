@@ -27,7 +27,7 @@ public class ClientProxy extends CommonProxy {
 		super.init(e);
 		keyBindings = new KeyBinding[1];
 		
-		keyBindings[1] = new KeyBinding("key.desc", Keyboard.KEY_LSHIFT, "key.desc");
+		keyBindings[0] = new KeyBinding("key.desc", Keyboard.KEY_LSHIFT, "key.desc");
 		
 		for(int i = 0; i < keyBindings.length; ++i) {
 			
