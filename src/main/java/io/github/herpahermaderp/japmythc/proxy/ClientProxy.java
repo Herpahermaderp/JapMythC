@@ -25,8 +25,8 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent e) {
 		
 		super.init(e);
-		keyBindings = new KeyBinding[1];
 		
+		keyBindings = new KeyBinding[1];
 		keyBindings[0] = new KeyBinding("key.desc", Keyboard.KEY_LSHIFT, "key.desc");
 		
 		for(int i = 0; i < keyBindings.length; ++i) {

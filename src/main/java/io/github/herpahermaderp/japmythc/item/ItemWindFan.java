@@ -90,6 +90,7 @@ public class ItemWindFan extends Item {
 		return true;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void fanEntitiesAABB(World world, EntityPlayer player, AxisAlignedBB fanBox) {
 		
 		Vec3 moveVec = player.getLookVec();
