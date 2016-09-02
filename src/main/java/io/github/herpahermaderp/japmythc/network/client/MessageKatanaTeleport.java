@@ -43,19 +43,16 @@ public class MessageKatanaTeleport implements IMessage {
 		@Override
 		public IMessage onMessage(final MessageKatanaTeleport message, MessageContext ctx) {
 			
-			System.out.println("Initialized");
 			final EntityPlayerMP thePlayerMP = (EntityPlayerMP)JapMythC.proxy.getPlayerEntity(ctx);	
 			Entity theEntity = thePlayerMP.worldObj.getEntityByID(message.entityId);	
 			
 			if(thePlayerMP.getCurrentEquippedItem() == null) {
 					
-				System.out.println("Player not holding item");
 				return null;
 			}
 				
 			if(thePlayerMP.getCurrentEquippedItem().getItem() instanceof IExtendedReach) {
 					
-				System.out.println("Player holding item");
 				IExtendedReach theWeapon = (IExtendedReach)thePlayerMP.getCurrentEquippedItem().getItem();
 				float reach = theWeapon.getReach();
 				MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
@@ -63,11 +60,9 @@ public class MessageKatanaTeleport implements IMessage {
 				double reachSq = theWeapon.getReach() * theWeapon.getReach();
 					
 				if(reachSq >= distanceSq) {
-						
-					System.out.println("Teleporting code");
+					
 					thePlayerMP.attackTargetEntityWithCurrentItem(theEntity);
 					thePlayerMP.setPositionAndUpdate(mov.entityHit.posX, mov.entityHit.posY, mov.entityHit.posZ);
-					
 				}	
 				
 				return null;

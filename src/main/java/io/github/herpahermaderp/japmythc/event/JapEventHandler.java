@@ -13,11 +13,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
 import net.minecraftforge.client.event.MouseEvent;
 
 public class JapEventHandler {
 
+	public static final int interval = 1200;
+	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(MouseEvent par2Event) {
@@ -27,9 +31,10 @@ public class JapEventHandler {
 		if(keyBindings[0].isPressed()) {
 			
 			if(par2Event.button == 1 && par2Event.buttonstate) {
-					
+				
 				Minecraft mc = Minecraft.getMinecraft();
 				EntityPlayer thePlayer = mc.thePlayer;
+				World world = thePlayer.getEntityWorld();
 			
 				if(thePlayer != null) {
 				
@@ -48,18 +53,29 @@ public class JapEventHandler {
 							ieri = null;
 						}
 				
-						if(ieri != null) {
-					
-							float reach = ieri.getReach();
-							MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
-					
-							if(mov != null) {
-						
-								if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
+						if(!stack.hasTagCompound()) {
 							
-									if(mov.entityHit != thePlayer) {
+							stack.setTagCompound(new NBTTagCompound());
+						}
+						
+						if(world.getTotalWorldTime() > stack.getTagCompound().getInteger("nextUse")) {
+						
+							if(ieri != null) {
 								
-										JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));										}
+								float reach = ieri.getReach();
+								MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
+						
+								if(mov != null) {
+							
+									if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
+								
+										if(mov.entityHit != thePlayer) {
+									
+											JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));		
+											thePlayer.getCurrentEquippedItem().damageItem(10, thePlayer);
+											stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
+										}
+									}
 								}
 							}
 						}

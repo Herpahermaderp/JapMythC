@@ -41,6 +41,7 @@ public class ItemCharm extends Item {
 		return this.icons[meta];
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		

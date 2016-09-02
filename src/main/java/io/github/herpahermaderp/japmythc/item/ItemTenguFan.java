@@ -60,6 +60,7 @@ public class ItemTenguFan extends ItemSword {
 		return true;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void fanEntitiesAABB(World world, EntityPlayer player, AxisAlignedBB fanBox) {
 		
 		Vec3 moveVec = player.getLookVec();
