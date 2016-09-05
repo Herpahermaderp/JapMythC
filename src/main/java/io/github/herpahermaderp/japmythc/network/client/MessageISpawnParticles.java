@@ -2,9 +2,11 @@ package io.github.herpahermaderp.japmythc.network.client;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.github.herpahermaderp.japmythc.item.ISpawnParticles;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
@@ -41,13 +43,24 @@ public class MessageISpawnParticles implements IMessage {
 		buf.writeFloat(r);
 	}
 	
-	protected void process(EntityPlayer player, Side side) {
+	public static class Handler implements IMessageHandler<MessageISpawnParticles, IMessage> {
+
+		private ItemStack stack;
+		private String senderName;
+		private float r;
 		
-		EntityPlayer commandSender = player.worldObj.getPlayerEntityByName(senderName);
-		
-		if(commandSender != null && stack != null && stack.getItem() instanceof ISpawnParticles) {
+		@Override
+		public IMessage onMessage(MessageISpawnParticles message, MessageContext ctx) {
 			
-			((ISpawnParticles) stack.getItem()).spawnParticles(player.worldObj, commandSender, stack, player.posX, player.posY, player.posZ, r);
+			EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+			EntityPlayer commandSender = player.worldObj.getPlayerEntityByName(senderName);
+			
+			if(commandSender != null && stack != null && stack.getItem() instanceof ISpawnParticles) {
+				
+				((ISpawnParticles) stack.getItem()).spawnParticles(player.worldObj, commandSender, stack, player.posX, player.posY, player.posZ, r);
+			}
+			
+			return null;
 		}
 	}
 }

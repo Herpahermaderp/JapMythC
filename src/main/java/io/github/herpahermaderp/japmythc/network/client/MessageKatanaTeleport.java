@@ -13,7 +13,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
 
 public class MessageKatanaTeleport implements IMessage {
 	
@@ -43,7 +42,7 @@ public class MessageKatanaTeleport implements IMessage {
 	
 	public static class Handler implements IMessageHandler<MessageKatanaTeleport, IMessage> {
 		
-		protected Random rand;
+		Random rand = new Random();
 		
 		@Override
 		public IMessage onMessage(final MessageKatanaTeleport message, MessageContext ctx) {
@@ -63,17 +62,16 @@ public class MessageKatanaTeleport implements IMessage {
 				MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
 				double distanceSq = thePlayerMP.getDistanceSqToEntity(theEntity);
 				double reachSq = theWeapon.getReach() * theWeapon.getReach();
-				World world = thePlayerMP.worldObj;
 				
 				if(reachSq >= distanceSq) {
 					
 					thePlayerMP.attackTargetEntityWithCurrentItem(theEntity);
 					thePlayerMP.setPositionAndUpdate(mov.entityHit.posX, mov.entityHit.posY, mov.entityHit.posZ);
+					
 					double motionX = this.rand.nextGaussian() * 0.02D;
 					double motionY = this.rand.nextGaussian() * 0.02D;
 					double motionZ = this.rand.nextGaussian() * 0.02D;
-					
-					world.spawnParticle("heart", thePlayerMP.posX + rand.nextFloat() * thePlayerMP.width * 2.0F - thePlayerMP.width, thePlayerMP.posY + 0.5D + rand.nextFloat() * thePlayerMP.height, thePlayerMP.posZ + rand.nextFloat() * thePlayerMP.width * 2.0F - thePlayerMP.width, motionX, motionY, motionZ);	
+					thePlayerMP.worldObj.spawnParticle("heart", thePlayerMP.posX + rand.nextFloat() * thePlayerMP.width * 2.0F - thePlayerMP.width, thePlayerMP.posY + 0.5D + rand.nextFloat() * thePlayerMP.height, thePlayerMP.posZ + rand.nextFloat() * thePlayerMP.width * 2.0F - thePlayerMP.width, motionX, motionY, motionZ);
 				}	
 				
 				return null;

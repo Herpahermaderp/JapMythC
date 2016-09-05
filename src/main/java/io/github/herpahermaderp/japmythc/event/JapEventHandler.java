@@ -4,9 +4,9 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.github.herpahermaderp.japmythc.JapMythC;
 import io.github.herpahermaderp.japmythc.item.IExtendedReach;
 import io.github.herpahermaderp.japmythc.item.ItemKatana;
+import io.github.herpahermaderp.japmythc.network.PacketDispatcher;
 import io.github.herpahermaderp.japmythc.network.client.MessageKatanaTeleport;
 import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
@@ -63,7 +63,7 @@ public class JapEventHandler {
 									
 											if(mov.entityHit != thePlayer) {
 										
-												JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));		
+												PacketDispatcher.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));	
 												thePlayer.getCurrentEquippedItem().damageItem(10, thePlayer);
 												stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
 											}

@@ -8,6 +8,8 @@ import net.minecraft.world.World;
 
 public class ItemFlameKatana extends ItemKatana implements IExtendedReach, ISpawnParticles {
 	
+	EntityPlayer player;
+	
 	public ItemFlameKatana(String unlocalizedName, ToolMaterial material) {
 		
 		super(unlocalizedName, material);
@@ -20,6 +22,18 @@ public class ItemFlameKatana extends ItemKatana implements IExtendedReach, ISpaw
 		
 		return 200.0F;
 	}
+	
+	//@Override
+	//@SideOnly(Side.CLIENT)
+	//public void onUpdate(ItemStack stack, World world, Entity entity, int par1, boolean par2) {
+		
+		//float radius = 5.0F;
+		
+		//if(!world.isRemote) {
+			
+			//PacketDispatcher.sendToAllAround(new MessageISpawnParticles(player, radius), player, 64.0D);
+		//}
+	//}
 
 	@Override
 	public void spawnParticles(World world, EntityPlayer player, ItemStack stack, double posX, double posY, double posZ, float radius) {
