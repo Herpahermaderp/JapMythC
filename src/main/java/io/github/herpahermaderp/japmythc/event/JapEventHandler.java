@@ -1,5 +1,7 @@
 package io.github.herpahermaderp.japmythc.event;
 
+import org.lwjgl.input.Keyboard;
+
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -8,9 +10,7 @@ import io.github.herpahermaderp.japmythc.item.IExtendedReach;
 import io.github.herpahermaderp.japmythc.item.ItemKatana;
 import io.github.herpahermaderp.japmythc.network.PacketDispatcher;
 import io.github.herpahermaderp.japmythc.network.client.MessageKatanaTeleport;
-import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -26,7 +26,6 @@ public class JapEventHandler {
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onEvent(MouseEvent par2Event) {
 		
-		KeyBinding[] keyBindings = ClientProxy.keyBindings;
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer thePlayer = mc.thePlayer;
 		World world = thePlayer.getEntityWorld();
@@ -41,7 +40,7 @@ public class JapEventHandler {
 				
 				if(par2Event.button == 1 && par2Event.buttonstate) {
 					
-					if(keyBindings[0].isPressed()) {
+					if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
 						
 						if(thePlayer != null) {
 					

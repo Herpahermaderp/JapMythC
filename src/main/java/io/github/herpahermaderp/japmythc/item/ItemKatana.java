@@ -3,22 +3,14 @@ package io.github.herpahermaderp.japmythc.item;
 import java.util.List;
 
 import io.github.herpahermaderp.japmythc.lib.Reference;
-import io.github.herpahermaderp.japmythc.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 
 public class ItemKatana extends ItemSword implements IExtendedReach {
-	
-	public EntityLivingBase renderViewEntity;
-	public EntityLivingBase entityLB;
-	
-	KeyBinding[] keyBindings = ClientProxy.keyBindings;
 	
 	public ItemKatana(String unlocalizedName, ToolMaterial material) {
 		
