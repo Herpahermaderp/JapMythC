@@ -30,7 +30,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 	@Override
 	public float getReach() {
 		
-		return 20.0F;
+		return 200.0F;
 	}
 	
 	public static MovingObjectPosition getTeleportReach(float dist) {

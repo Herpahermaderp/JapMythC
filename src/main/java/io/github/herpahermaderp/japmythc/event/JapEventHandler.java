@@ -27,53 +27,46 @@ public class JapEventHandler {
 	public void onEvent(MouseEvent par2Event) {
 		
 		KeyBinding[] keyBindings = ClientProxy.keyBindings;
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityPlayer thePlayer = mc.thePlayer;
+		World world = thePlayer.getEntityWorld();
+		ItemStack stack = thePlayer.getCurrentEquippedItem();
+		IExtendedReach ieri;
 		
-		if(keyBindings[0].isPressed()) {
-			
-			if(par2Event.button == 1 && par2Event.buttonstate) {
+		if(stack != null) {
+		
+			if(stack.getItem() instanceof IExtendedReach) {
 				
-				Minecraft mc = Minecraft.getMinecraft();
-				EntityPlayer thePlayer = mc.thePlayer;
-				World world = thePlayer.getEntityWorld();
-			
-				if(thePlayer != null) {
+				ieri = (IExtendedReach) stack.getItem();
 				
-					ItemStack stack = thePlayer.getCurrentEquippedItem();
-					IExtendedReach ieri;
-				
-					if(stack != null) {
+				if(par2Event.button == 1 && par2Event.buttonstate) {
 					
-						if(stack.getItem() instanceof IExtendedReach) {
+					if(keyBindings[0].isPressed()) {
 						
-							ieri = (IExtendedReach) stack.getItem();
-						}
+						if(thePlayer != null) {
 					
-						else {
-						
-							ieri = null;
-						}
-				
-						if(!stack.hasTagCompound()) {
-							
-							stack.setTagCompound(new NBTTagCompound());
-						}
-						
-						if(world.getTotalWorldTime() > stack.getTagCompound().getInteger("nextUse")) {
-						
-							if(ieri != null) {
+							if(!stack.hasTagCompound()) {
 								
-								float reach = ieri.getReach();
-								MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
-						
-								if(mov != null) {
+								stack.setTagCompound(new NBTTagCompound());
+							}
 							
-									if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
-								
-										if(mov.entityHit != thePlayer) {
+							if(world.getTotalWorldTime() > stack.getTagCompound().getInteger("nextUse")) {
+							
+								if(ieri != null) {
 									
-											JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));		
-											thePlayer.getCurrentEquippedItem().damageItem(10, thePlayer);
-											stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
+									float reach = ieri.getReach();
+									MovingObjectPosition mov = ItemKatana.getTeleportReach(reach);
+							
+									if(mov != null) {
+								
+										if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
+									
+											if(mov.entityHit != thePlayer) {
+										
+												JapMythC.network.sendToServer(new MessageKatanaTeleport(mov.entityHit.getEntityId()));		
+												thePlayer.getCurrentEquippedItem().damageItem(10, thePlayer);
+												stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
+											}
 										}
 									}
 								}
@@ -82,7 +75,11 @@ public class JapEventHandler {
 					}
 				}
 			}
-		}		
+			
+			else {
+				
+				ieri = null;
+			}
+		}
 	}
-
 }
