@@ -9,10 +9,12 @@ import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -22,6 +24,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 	public static final int interval = 1200;
 	IExtendedReach ieri;
 	int entityId;
+	EntityPlayerMP playerMP;
 	
 	public ItemKatana(String unlocalizedName, ToolMaterial material) {
 		
@@ -30,7 +33,6 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
 	}
 	
-	@SuppressWarnings("static-access")
 	@Override
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		
@@ -52,7 +54,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 						if(ieri != null) {
 							
 							float reach = ieri.getReach();
-							MovingObjectPosition mov = this.getTeleportReach(reach);
+							MovingObjectPosition mov = getTeleportReach(reach);
 							
 							if(mov != null) {
 								
@@ -60,7 +62,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 									
 									if(mov.entityHit != player) {
 										
-										Entity entity = player.worldObj.getEntityByID(entityId);
+										Entity entity = mov.entityHit;
 										double distanceSq = player.getDistanceSqToEntity(entity);
 										double reachSq = this.getReach() * this.getReach();
 										Random rand = new Random();
@@ -70,13 +72,15 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 										
 										if(reachSq > distanceSq) {
 											
-											player.attackTargetEntityWithCurrentItem(entity);
+											mov.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), 7);
+											player.attackTargetEntityWithCurrentItem(mov.entityHit);
 											player.setPositionAndUpdate(mov.entityHit.posX, mov.entityHit.posY, mov.entityHit.posZ);
-											this.setDamage(stack, this.getDamage(stack) - 10);
-											player.worldObj.spawnParticle("heart", player.posX + rand.nextFloat() * player.width * 2.0F - player.width, player.posY + 0.5D + rand.nextFloat() * player.height, player.posZ + rand.nextFloat() * player.width * 2.0F - player.width, motionX, motionY, motionZ);
+											player.worldObj.spawnParticle("bigsmoke", player.posX + rand.nextFloat() * player.width * 2.0F - player.width, player.posY + 0.5D + rand.nextFloat() * player.height, player.posZ + rand.nextFloat() * player.width * 2.0F - player.width, motionX, motionY, motionZ);
+											player.worldObj.spawnParticle("bigsmoke", player.posX + rand.nextFloat() * player.width * 2.0F - player.width, player.posY + 0.5D + rand.nextFloat() * player.height, player.posZ + rand.nextFloat() * player.width * 2.0F - player.width, motionX, motionY, motionZ);
 											
 											if(!player.capabilities.isCreativeMode) {
 												
+												setDamage(stack, getDamage(stack) - 10);
 												stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
 											}
 										}
@@ -97,6 +101,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 		return 200.0F;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static MovingObjectPosition getTeleportReach(float dist) {
 	    
 		Minecraft mc = Minecraft.getMinecraft();
@@ -123,7 +128,6 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 	    		Entity pointedEntity = null;
 	    		float var9 = 1.0F;
 	        
-	    		@SuppressWarnings("unchecked")
 	    		List<Entity> list = mc.theWorld.getEntitiesWithinAABBExcludingEntity(mc.renderViewEntity, theViewBoundingBox.addCoord(lookvec.xCoord * var2, lookvec.yCoord * var2, lookvec.zCoord * var2).expand(var9, var9, var9));
 	    		double d = calcdist;
 	            
@@ -131,8 +135,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 	            
 	    			if (entity.canBeCollidedWith()) {
 	                
-	    				float bordersize = entity.getCollisionBorderSize();
-	                
+	    				float bordersize = entity.getCollisionBorderSize(); 
 	    				AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(entity.posX-entity.width/2, entity.posY, entity.posZ-entity.width/2, entity.posX+entity.width/2, entity.posY+entity.height, entity.posZ+entity.width/2);
 	    				aabb.expand(bordersize, bordersize, bordersize);
 	    				MovingObjectPosition mop0 = aabb.calculateIntercept(pos, var8);
