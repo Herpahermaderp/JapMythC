@@ -17,7 +17,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		
 		ModItems.init();
-		PacketDispatcher.registerPackets();
+		//PacketDispatcher.registerPackets();
 	}
 	
 	@EventHandler
@@ -28,7 +28,7 @@ public class CommonProxy {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
 		
-		MinecraftForge.EVENT_BUS.register(new JapEventHandler());
+		//MinecraftForge.EVENT_BUS.register(new JapEventHandler());
 	}
 	
 	public EntityPlayer getPlayerEntity(MessageContext ctx) {

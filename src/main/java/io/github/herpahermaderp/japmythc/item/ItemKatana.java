@@ -1,22 +1,94 @@
 package io.github.herpahermaderp.japmythc.item;
 
 import java.util.List;
+import java.util.Random;
+
+import org.lwjgl.input.Keyboard;
 
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 
 public class ItemKatana extends ItemSword implements IExtendedReach {
+	
+	public static final int interval = 1200;
+	IExtendedReach ieri;
+	int entityId;
 	
 	public ItemKatana(String unlocalizedName, ToolMaterial material) {
 		
 		super(material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+	}
+	
+	@SuppressWarnings("static-access")
+	@Override
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+		
+		if(stack != null) {
+			
+			ieri = (IExtendedReach) stack.getItem();
+			
+			if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+				
+				if(player != null) {
+					
+					if(!stack.hasTagCompound()) {
+						
+						stack.setTagCompound(new NBTTagCompound());
+					}
+					
+					if(world.getTotalWorldTime() > stack.getTagCompound().getInteger("nextUse")) {
+						
+						if(ieri != null) {
+							
+							float reach = ieri.getReach();
+							MovingObjectPosition mov = this.getTeleportReach(reach);
+							
+							if(mov != null) {
+								
+								if(mov.entityHit != null && mov.entityHit.hurtResistantTime == 0) {
+									
+									if(mov.entityHit != player) {
+										
+										Entity entity = player.worldObj.getEntityByID(entityId);
+										double distanceSq = player.getDistanceSqToEntity(entity);
+										double reachSq = this.getReach() * this.getReach();
+										Random rand = new Random();
+										double motionX = rand.nextGaussian() * 0.02D;
+										double motionY = rand.nextGaussian() * 0.02D;
+										double motionZ = rand.nextGaussian() * 0.02D;
+										
+										if(reachSq > distanceSq) {
+											
+											player.attackTargetEntityWithCurrentItem(entity);
+											player.setPositionAndUpdate(mov.entityHit.posX, mov.entityHit.posY, mov.entityHit.posZ);
+											this.setDamage(stack, this.getDamage(stack) - 10);
+											player.worldObj.spawnParticle("heart", player.posX + rand.nextFloat() * player.width * 2.0F - player.width, player.posY + 0.5D + rand.nextFloat() * player.height, player.posZ + rand.nextFloat() * player.width * 2.0F - player.width, motionX, motionY, motionZ);
+											
+											if(!player.capabilities.isCreativeMode) {
+												
+												stack.getTagCompound().setInteger("nextUse", (int)(world.getTotalWorldTime() + interval));
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return stack;
 	}
 	
 	@Override
