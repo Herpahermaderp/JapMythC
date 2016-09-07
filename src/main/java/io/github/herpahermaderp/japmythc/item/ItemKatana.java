@@ -72,7 +72,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach {
 										
 										if(reachSq > distanceSq) {
 											
-											mov.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), 7);
+											//mov.entityHit.attackEntityFrom(DamageSource.causePlayerDamage(player), 7);
 											player.attackTargetEntityWithCurrentItem(mov.entityHit);
 											player.setPositionAndUpdate(mov.entityHit.posX, mov.entityHit.posY, mov.entityHit.posZ);
 											player.worldObj.spawnParticle("bigsmoke", player.posX + rand.nextFloat() * player.width * 2.0F - player.width, player.posY + 0.5D + rand.nextFloat() * player.height, player.posZ + rand.nextFloat() * player.width * 2.0F - player.width, motionX, motionY, motionZ);
