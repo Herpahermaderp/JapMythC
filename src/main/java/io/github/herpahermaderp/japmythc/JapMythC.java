@@ -17,10 +17,8 @@ public class JapMythC {
 
 	@SidedProxy(clientSide = Reference.PROXY_LOC + ".ClientProxy", serverSide = Reference.PROXY_LOC + ".ServerProxy")
 	public static CommonProxy proxy;
-	
 	@Instance
 	public static JapMythC instance;
-	
 	public static SimpleNetworkWrapper network;
 	
 	@EventHandler
@@ -33,6 +31,7 @@ public class JapMythC {
 	public void init(FMLInitializationEvent e) {
 		
 		proxy.init(e);
+		proxy.registerRenderers();
 	}
 	
 	@EventHandler

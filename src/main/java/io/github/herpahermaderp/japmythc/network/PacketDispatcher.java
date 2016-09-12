@@ -2,11 +2,15 @@ package io.github.herpahermaderp.japmythc.network;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import io.github.herpahermaderp.japmythc.lib.Reference;
-import io.github.herpahermaderp.japmythc.network.client.MessageISpawnParticles;
-import io.github.herpahermaderp.japmythc.network.client.MessageKatanaTeleport;
+import io.github.herpahermaderp.japmythc.network.client.PacketISpawnParticlesFlames;
+import io.github.herpahermaderp.japmythc.network.client.PacketISpawnParticlesGeneric;
+import io.github.herpahermaderp.japmythc.network.client.PacketISpawnParticlesSF;
+import io.github.herpahermaderp.japmythc.network.server.PacketKatanaTeleport;
+import io.github.herpahermaderp.japmythc.network.server.PacketSFJumpAttack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -17,14 +21,30 @@ public class PacketDispatcher {
 	
 	public static final void registerPackets() {
 		
-		registerMessage(MessageKatanaTeleport.Handler.class, MessageKatanaTeleport.class, Side.SERVER);
-		registerMessage(MessageISpawnParticles.Handler.class, MessageISpawnParticles.class, Side.CLIENT);
+		registerMessage(PacketKatanaTeleport.class);
+		registerMessage(PacketISpawnParticlesGeneric.class);
+		registerMessage(PacketISpawnParticlesSF.class);
+		registerMessage(PacketSFJumpAttack.class);
+		registerMessage(PacketISpawnParticlesFlames.class);
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static final void registerMessage(Class handlerClass, Class messageClass, Side side) {
+	public static final <T extends AbstractMessage<T> & IMessageHandler<T, IMessage>> void registerMessage(Class<T> clazz) {
 		
-		PacketDispatcher.dispatcher.registerMessage(handlerClass, messageClass, packetId++, side);
+		if(AbstractMessage.AbstractClientMessage.class.isAssignableFrom(clazz)) {
+			
+			PacketDispatcher.dispatcher.registerMessage(clazz, clazz, packetId++, Side.CLIENT);
+		}
+		
+		else if(AbstractMessage.AbstractServerMessage.class.isAssignableFrom(clazz)) {
+				
+				PacketDispatcher.dispatcher.registerMessage(clazz, clazz, packetId++, Side.SERVER);
+		}
+		
+		else {
+			
+			PacketDispatcher.dispatcher.registerMessage(clazz, clazz, packetId, Side.CLIENT);
+			PacketDispatcher.dispatcher.registerMessage(clazz, clazz, packetId++, Side.SERVER);
+		}
 	}
 	
 	 /**

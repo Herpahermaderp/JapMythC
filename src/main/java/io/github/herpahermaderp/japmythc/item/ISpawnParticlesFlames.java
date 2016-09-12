@@ -6,8 +6,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public interface ISpawnParticles {
+public interface ISpawnParticlesFlames {
 
 	@SideOnly(Side.CLIENT)
-	void spawnParticles(World world, EntityPlayer player, ItemStack stack, double x, double y, double z, float r);
+	void spawnParticlesFlames(World world, EntityPlayer player, ItemStack stack, double x, double y, double z, float r);
 }
