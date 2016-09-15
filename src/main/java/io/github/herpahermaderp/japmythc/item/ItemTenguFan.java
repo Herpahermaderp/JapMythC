@@ -2,6 +2,7 @@ package io.github.herpahermaderp.japmythc.item;
 
 import java.util.List;
 
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -20,6 +21,7 @@ public class ItemTenguFan extends ItemSword {
 		super(material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 	}
 	
 	@Override

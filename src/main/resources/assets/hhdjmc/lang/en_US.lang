@@ -1,3 +1,22 @@
+< en_US.lang - English localization file >
+< Blocks >
+tile.bamboo_block.name=Bamboo Block
+tile.hitobashira.name=Hitobashira
+tile.iron_sand_block.name=Iron Sand
+tile.leaves_0.name=Jubokko Leaves
+tile.leaves_1.name=Sakura Leaves
+tile.log_0.name=Jubokko Logs
+tile.log_1.name=Sakura Logs
+tile.planks_0.name=Jubokko Planks
+tile.planks_1.name=Sakura Planks
+tile.sapling_0.name=Jubokko Sapling
+tile.sapling_1.name=Sakura Sapling
+
+< Creative Tabs >
+itemGroup.tab=Tab
+
+< Items >
+item.bamboo.name=Bamboo
 item.blooming_fan.name=§dFan of Blooming
 item.charm_0.name=Farmer Charm
 item.charm_1.name=Inugami Charm
@@ -8,6 +27,11 @@ item.katana.name=Katana
 item.katana_blade_piece.name=Katana Blade Piece
 item.katana_fire.name=Flame Katana
 item.katana_spiritfire.name=Spirit Flame Katana
+item.kunai.name=Kunai
+item.rice.name=Rice
+item.shuriken.name=Shuriken
+item.spirit_flame.name=Spirit Flame
 item.tengu_fan.name=Tengu Fan
 item.tsuka.name=Tsuka
 item.wind_fan.name=Fan of Wind
+

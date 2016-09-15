@@ -5,9 +5,9 @@ import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class ItemSpiritFlame extends Item {
+public class ItemKunai extends Item {
 
-	public ItemSpiritFlame(String unlocalizedName) {
+	public ItemKunai(String unlocalizedName) {
 		
 		super();
 		this.setUnlocalizedName(unlocalizedName);

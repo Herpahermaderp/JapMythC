@@ -2,6 +2,7 @@ package io.github.herpahermaderp.japmythc.item;
 
 import java.util.List;
 
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -22,7 +23,7 @@ public class ItemWindFan extends Item {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabCombat);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(132);
 	}

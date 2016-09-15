@@ -2,6 +2,7 @@ package io.github.herpahermaderp.japmythc.item;
 
 import java.util.List;
 
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,7 +19,7 @@ public class ItemCharm extends Item {
 		super();
 		this.setHasSubtypes(true);
 		this.setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabMisc);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 	}
 	
 	@Override

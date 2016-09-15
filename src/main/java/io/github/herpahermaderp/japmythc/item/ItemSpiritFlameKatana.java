@@ -3,6 +3,7 @@ package io.github.herpahermaderp.japmythc.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.herpahermaderp.japmythc.client.renderer.CustomRenderGlobal;
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,6 +17,7 @@ public class ItemSpiritFlameKatana extends ItemFlameKatana implements IExtendedR
 		super(unlocalizedName, material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 	}
 	
 	@SideOnly(Side.CLIENT)

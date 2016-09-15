@@ -2,6 +2,7 @@ package io.github.herpahermaderp.japmythc.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -22,6 +23,7 @@ public class ItemKatana extends ItemSword implements IExtendedReach, ISpawnParti
 		super(material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 	}
 	
 	@Override

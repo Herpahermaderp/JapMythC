@@ -1,10 +1,10 @@
 package io.github.herpahermaderp.japmythc.item;
 
 import cpw.mods.fml.common.eventhandler.Event.Result;
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
@@ -21,7 +21,7 @@ public class ItemBloomFan extends Item {
 		super();
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
-		this.setCreativeTab(CreativeTabs.tabTools);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(132);
 	}
