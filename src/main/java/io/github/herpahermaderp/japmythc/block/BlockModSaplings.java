@@ -15,13 +15,13 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenMegaPineTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -29,6 +29,7 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 
 	protected IIcon[] icon = new IIcon[2];
 	public static final String[] types = { "jubokko", "sakura" };
+	public EntityPlayer player;
 	
 	protected BlockModSaplings(String unlocalizedName, Material material) {
 		
@@ -86,7 +87,7 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 			return;
 		}
         
-		int l = world.getBlockMetadata(par2, par3, par4) & 2;
+		int l = world.getBlockMetadata(par2, par3, par4) & 3;
 		Object object = rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
 
 		int i1 = 0;
@@ -96,16 +97,36 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 		switch (l) {
                 
         case 0:
-        label78:
-            object = new WorldGenJubokkoTree(true);
-            System.out.println("running case 0b");
+            label78:
+
+            for (i1 = 0; i1 >= -1; --i1) {
+                    
+                for (j1 = 0; j1 >= -1; --j1) {
+                        
+                	if (this.isSameSapling(world, par2 + i1, par3, par4 + j1, 1) && this.isSameSapling(world, par2 + i1 + 1, par3, par4 + j1, 1) && this.isSameSapling(world, par2 + i1, par3, par4 + j1 + 1, 1) && this.isSameSapling(world, par2 + i1 + 1, par3, par4 + j1 + 1, 1)) {
+                			
+                        object = new WorldGenJubokkoTree(true);
+                        flag = true;
+                        System.out.println("running case 0a");
+                        break label78;
+                    }
+                }
+            }
+
+            if (!flag) {
+                    
+                j1 = 0;
+                i1 = 0;
+                object = new WorldGenJubokkoTree(true);
+                System.out.println("running case 0b");
+            }
+
             break;
-        
             
         case 1:
         default:
         	System.out.println("running case 1");
-        	object = new WorldGenSakuraTree(true);
+        	object = new WorldGenSakuraTree(true, 4, 1, 1, false);
             break;
             
         }

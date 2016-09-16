@@ -4,9 +4,11 @@ import java.util.Random;
 
 import io.github.herpahermaderp.japmythc.block.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class WorldGenJubokkoTree extends WorldGenerator {
 
@@ -81,10 +83,9 @@ public class WorldGenJubokkoTree extends WorldGenerator {
             else
             {
                 Block block1 = world.getBlock(par3, par4 - 1, par5);
-
-                //boolean isSoil = block1.canSustainPlant(world, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(world, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 
-                if (block1 == Blocks.netherrack && par4 < 256 - l - 1)
+                if (isSoil && par4 < 256 - l - 1)
                 {
                     block1.onPlantGrow(world, par3, par4 - 1, par5, par3, par4, par5);
                     l3 = rand.nextInt(2);
