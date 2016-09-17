@@ -11,7 +11,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class CustomWorldGenerator implements IWorldGenerator {
 
+	@SuppressWarnings("unused")
 	private WorldGenerator gen_sakura_tree;
+	@SuppressWarnings("unused")
 	private WorldGenerator gen_jubokko_tree;
 	
 	public CustomWorldGenerator() {
@@ -38,6 +40,7 @@ public class CustomWorldGenerator implements IWorldGenerator {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public void generateSakuraTree(World world, Random rand, int posX, int posZ) {
 		
 		for(int i = 0; i < 16; ++i) {
@@ -56,6 +59,7 @@ public class CustomWorldGenerator implements IWorldGenerator {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public void generateJubokkoTree(World world, Random rand, int posX, int posZ) {
 		
 		for(int i = 0; i < 16; ++i) {

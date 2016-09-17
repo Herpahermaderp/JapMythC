@@ -13,14 +13,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -29,7 +30,12 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 
 	protected IIcon[] icon = new IIcon[2];
 	public static final String[] types = { "jubokko", "sakura" };
-	public EntityPlayer player;
+	private Minecraft mc = Minecraft.getMinecraft();
+	private World world = mc.theWorld;
+	private int posX;
+	private int posY;
+	private int posZ;
+	private int meta;
 	
 	protected BlockModSaplings(String unlocalizedName, Material material) {
 		
@@ -208,5 +214,54 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 	public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
 	
 		this.func_149879_c(world, p_149853_3_, p_149853_4_, p_149853_5_, rand);
+	}
+	
+	public int getBlockMetadata(int parX, int parY, int parZ) {
+		
+		this.posX = parX;
+		this.posY = parY;
+		this.posZ = parZ;
+		
+		if(parX >= -30000000 && parZ >= -30000000 && parX >= 30000000 && parZ >= 30000000) {
+			
+			if(parY < 0) {
+				
+				return 0;
+			}
+			
+			else if(parY >= 256) {
+				
+				return 0;
+			}
+			
+			else {
+				
+				Chunk chunk = world.getChunkFromChunkCoords(parX >> 4, parZ >> 4);
+				parX &= 15;
+				parZ &= 15;
+				return chunk.getBlockMetadata(parX, parY, parZ);
+			}
+		}
+		
+		else {
+			
+			return 0;
+		}
+	}
+	
+	@Override
+	protected boolean canPlaceBlockOn(Block block) {
+		
+		meta = this.getBlockMetadata(posX, posY, posZ) & 2;
+		
+		if(meta == 0) {
+			
+			return block == Blocks.netherrack;
+		}
+		
+		else {
+			
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland;
+		}
 	}
 }

@@ -13,6 +13,7 @@ public class EntitySpiritFlameFX extends EntityFX {
 
 	private final ResourceLocation texture = new ResourceLocation(Reference.ID, "textures/particle/spiritflame_fx.png");
 	
+	@SuppressWarnings("unused")
 	public EntitySpiritFlameFX(World world, double parX, double parY, double parZ, double parMotionX, double parMotionY, double parMotionZ) {
 		
 		super(world, parX, parY, parZ, parMotionX, parMotionY, parMotionZ);
@@ -27,6 +28,7 @@ public class EntitySpiritFlameFX extends EntityFX {
         this.noClip = true;
 	}
 	
+	@SuppressWarnings("unused")
 	@Override
 	public void renderParticle(Tessellator tess, float partialTick, float par3, float par4, float par5, float par6, float par7) {
 		

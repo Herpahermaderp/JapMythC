@@ -1,6 +1,9 @@
 package io.github.herpahermaderp.japmythc.item;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import io.github.herpahermaderp.japmythc.block.ModBlocks;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
@@ -8,6 +11,9 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
 
+	public static Block blockRicePlant = ModBlocks.ricePlant;
+	public static Block soil = Blocks.farmland;
+	
 	public static Item bamboo;
 	public static Item bloomFan;
 	public static Item charm;
@@ -41,7 +47,7 @@ public class ModItems {
 		GameRegistry.registerItem(katana = new ItemKatana("katana", KATANA), "katana");
 		GameRegistry.registerItem(katanaBladePiece = new ItemKatanaBladePiece("katana_blade_piece"), "katana_blade_piece");
 		GameRegistry.registerItem(kunai = new ItemKunai("kunai"), "kunai");
-		GameRegistry.registerItem(rice = new ItemRice("rice"), "rice");
+		GameRegistry.registerItem(rice = new ItemRice("rice", blockRicePlant, soil), "rice");
 		GameRegistry.registerItem(shuriken = new ItemShuriken("shuriken"), "shuriken");
 		GameRegistry.registerItem(spiritFlame = new ItemSpiritFlame("spirit_flame"), "spirit_flame");
 		GameRegistry.registerItem(spiritFlameKatana = new ItemSpiritFlameKatana("katana_spiritfire", SFKATANA), "katana_spiritfire");

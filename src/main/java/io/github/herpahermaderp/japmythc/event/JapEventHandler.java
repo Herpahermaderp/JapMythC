@@ -144,6 +144,7 @@ public class JapEventHandler {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
 	public void onLeftClickLeftShiftEvent(MouseEvent event) {

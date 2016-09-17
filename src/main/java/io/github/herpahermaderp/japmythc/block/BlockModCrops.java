@@ -72,7 +72,7 @@ public class BlockModCrops extends BlockBush implements IGrowable {
 	@Override
 	public boolean func_149851_a(World world, int parX, int parY, int parZ, boolean par5) {
 		
-		return world.getBlockMetadata(parX, parY, parZ) != 2;
+		return world.getBlockMetadata(parX, parY, parZ) != 7;
 	}
 	
 	@Override
