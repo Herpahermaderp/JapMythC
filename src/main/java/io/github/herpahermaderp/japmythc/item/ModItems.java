@@ -1,12 +1,14 @@
 package io.github.herpahermaderp.japmythc.item;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.herpahermaderp.japmythc.block.ModBlocks;
+import io.github.herpahermaderp.japmythc.block.descriptor.FusumaNormDescriptor;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
@@ -17,19 +19,19 @@ public class ModItems {
 	public static Item bamboo;
 	public static Item bloomFan;
 	public static Item charm;
+	public static Item flameKatana;
+	public static Item fusuma;
+	public static Item jo;
+	public static Item katana;
 	public static Item katanaBladePiece;
 	public static Item kunai;
 	public static Item rice;
 	public static Item shuriken;
 	public static Item spiritFlame;
+	public static Item spiritFlameKatana;
+	public static Item tenguFan;
 	public static Item tsuka;
 	public static Item windFan;
-	
-	public static ItemSword flameKatana;
-	public static ItemSword jo;
-	public static ItemSword katana;
-	public static ItemSword spiritFlameKatana;
-	public static ItemSword tenguFan;
 	
 	public static ToolMaterial FANTENGU = EnumHelper.addToolMaterial("fan_tengu", 0, 131, 0, 3.0F, 10);
 	public static ToolMaterial FKATANA = EnumHelper.addToolMaterial("fkatana", 0, 250, 0, 6.0F, 10);
@@ -54,5 +56,16 @@ public class ModItems {
 		GameRegistry.registerItem(tenguFan = new ItemTenguFan("tengu_fan", FANTENGU), "tengu_fan");
 		GameRegistry.registerItem(tsuka = new ItemTsuka("tsuka"), "tsuka");
 		GameRegistry.registerItem(windFan = new ItemWindFan("wind_fan"), "wind_fan");
+		
+		if(Loader.isModLoaded("malisisdoors")) {
+			
+			FusumaNormDescriptor fusumaNorm = new FusumaNormDescriptor("fusuma");
+			fusuma = fusumaNorm.getItem();
+		}
+		
+		else {
+			
+			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma", Material.wood), "fusuma");
+		}
 	}
 }
