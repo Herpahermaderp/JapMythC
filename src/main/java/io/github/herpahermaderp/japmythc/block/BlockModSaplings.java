@@ -218,16 +218,16 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 	@Override
 	protected boolean canPlaceBlockOn(Block block) {
 		
-		meta = world.getBlockMetadata(posX, posY, posZ);
+		int meta = world.getBlockMetadata(posX, posY, posZ);
 		
-		if(meta == 0) {
-			
+		switch(meta) {
+		
+		case(0):
 			return block == Blocks.netherrack;
+		case(1):
+			return block == Blocks.grass || block == Blocks.dirt;
 		}
 		
-		else {
-			
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland;
-		}
+		return false;
 	}
 }
