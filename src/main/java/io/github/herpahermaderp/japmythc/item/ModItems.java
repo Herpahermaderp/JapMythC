@@ -4,6 +4,8 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.herpahermaderp.japmythc.block.ModBlocks;
 import io.github.herpahermaderp.japmythc.block.descriptor.FusumaNormDescriptor;
+import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraManDescriptor;
+import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraRiverDescriptor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -21,6 +23,8 @@ public class ModItems {
 	public static Item charm;
 	public static Item flameKatana;
 	public static Item fusuma;
+	public static Item fusumaSM;
+	public static Item fusumaSR;
 	public static Item jo;
 	public static Item katana;
 	public static Item katanaBladePiece;
@@ -60,12 +64,18 @@ public class ModItems {
 		if(Loader.isModLoaded("malisisdoors")) {
 			
 			FusumaNormDescriptor fusumaNorm = new FusumaNormDescriptor("fusuma");
+			FusumaSakuraManDescriptor fusumaSakuraMan = new FusumaSakuraManDescriptor("fusuma_sr");
+			FusumaSakuraRiverDescriptor fusumaSakuraRiver = new FusumaSakuraRiverDescriptor("fusuma_sr");
 			fusuma = fusumaNorm.getItem();
+			fusumaSM = fusumaSakuraMan.getItem();
+			fusumaSR = fusumaSakuraRiver.getItem();
 		}
 		
 		else {
 			
 			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma", Material.wood), "fusuma");
+			GameRegistry.registerItem(fusumaSM = new ItemFusumaSakuraMan("fusuma_sm", Material.wood), "fusuma_sm");
+			GameRegistry.registerItem(fusumaSR = new ItemFusumaSakuraRiver("fusuma_sr", Material.wood), "fusuma_sr");
 		}
 	}
 }

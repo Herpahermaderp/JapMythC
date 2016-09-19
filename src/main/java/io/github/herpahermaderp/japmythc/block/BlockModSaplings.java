@@ -34,6 +34,7 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 	private int posX;
 	private int posY;
 	private int posZ;
+	@SuppressWarnings("unused")
 	private int meta;
 	
 	protected BlockModSaplings(String unlocalizedName, Material material) {

@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemFusumaNorm extends ItemDoor {
+public class ItemFusumaSakuraMan extends ItemDoor {
 
-	public ItemFusumaNorm(String unlocalizedName, Material material) {
+public ItemFusumaSakuraMan(String unlocalizedName, Material material) {
 		
 		super(material);
 		setUnlocalizedName(unlocalizedName);
@@ -30,7 +30,7 @@ public class ItemFusumaNorm extends ItemDoor {
 		else {
 			
 			++posY;
-			Block block = ModBlocks.fusuma;
+			Block block = ModBlocks.fusumaSM;
 			
 			if(player.canPlayerEdit(posX, posY, posZ, side, stack) && player.canPlayerEdit(posX, posY + 1, posZ, side, stack)) {
 				

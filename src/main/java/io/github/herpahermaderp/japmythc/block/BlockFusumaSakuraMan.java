@@ -9,9 +9,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class BlockFusumaNorm extends BlockDoor {
+public class BlockFusumaSakuraMan extends BlockDoor {
 
-	public BlockFusumaNorm(String unlocalizedName, Material material) {
+public BlockFusumaSakuraMan(String unlocalizedName, Material material) {
 		
 		super(material);
 		setBlockName(unlocalizedName);
@@ -21,12 +21,12 @@ public class BlockFusumaNorm extends BlockDoor {
 	@Override
 	public Item getItem(World world, int posX, int posY, int posZ) {
 		
-		return ModItems.fusuma;
+		return ModItems.fusumaSM;
 	}
 	
 	@Override
 	public Item getItemDropped(int meta, Random rand, int fortune) {
 		
-		return(meta & 8) !=0 ? null : ModItems.fusuma;
+		return(meta & 8) !=0 ? null : ModItems.fusumaSM;
 	}
 }

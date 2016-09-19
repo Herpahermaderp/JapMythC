@@ -3,6 +3,8 @@ package io.github.herpahermaderp.japmythc.block;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.herpahermaderp.japmythc.block.descriptor.FusumaNormDescriptor;
+import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraManDescriptor;
+import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraRiverDescriptor;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModLeaves;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModLogs;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModSaplings;
@@ -14,6 +16,8 @@ public class ModBlocks {
 
 	public static Block bamboo;
 	public static Block fusuma;
+	public static Block fusumaSM;
+	public static Block fusumaSR;
 	public static Block hitobashira;
 	public static Block ironSand;
 	public static Block logs;
@@ -36,13 +40,21 @@ public class ModBlocks {
 		if(Loader.isModLoaded("malisisdoors")) {
 			
 			FusumaNormDescriptor fusumaNorm = new FusumaNormDescriptor("fusuma");
+			FusumaSakuraManDescriptor fusumaSakuraMan = new FusumaSakuraManDescriptor("fusuma_sm");
+			FusumaSakuraRiverDescriptor fusumaSakuraRiver = new FusumaSakuraRiverDescriptor("fusuma_sr");
 			fusumaNorm.register();
+			fusumaSakuraMan.register();
+			fusumaSakuraRiver.register();
 			fusuma = fusumaNorm.getBlock();
+			fusumaSM = fusumaSakuraMan.getBlock();
+			fusumaSR = fusumaSakuraRiver.getBlock();
 		}
 		
 		else {
 
 			GameRegistry.registerBlock(fusuma = new BlockFusumaNorm("fusuma", Material.wood), "fusuma");
+			GameRegistry.registerBlock(fusumaSM = new BlockFusumaSakuraMan("fusuma_sm", Material.wood), "fusuma_sm");
+			GameRegistry.registerBlock(fusumaSR = new BlockFusumaSakuraRiver("fusuma_sr", Material.wood), "fusuma_sr");
 		}
 	}
 }
