@@ -11,7 +11,7 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import io.github.herpahermaderp.japmythc.proxy.CommonProxy;
 
-@Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VER)
+@Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VER, dependencies = "after:malisisdoors")
 
 public class JapMythC {
 

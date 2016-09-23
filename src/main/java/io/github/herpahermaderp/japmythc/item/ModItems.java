@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
@@ -28,6 +29,10 @@ public class ModItems {
 	public static Item jo;
 	public static Item katana;
 	public static Item katanaBladePiece;
+	public static Item kimonoHelmet;
+	public static Item kimonoChestplate;
+	public static Item kimonoLeggings;
+	public static Item kimonoBoots;
 	public static Item kunai;
 	public static Item rice;
 	public static Item shuriken;
@@ -37,6 +42,7 @@ public class ModItems {
 	public static Item tsuka;
 	public static Item windFan;
 	
+	public static ArmorMaterial CLOTH = EnumHelper.addArmorMaterial("cloth", 0, new int[] {0, 0, 0, 0}, 0);
 	public static ToolMaterial FANTENGU = EnumHelper.addToolMaterial("fan_tengu", 0, 131, 0, 3.0F, 10);
 	public static ToolMaterial FKATANA = EnumHelper.addToolMaterial("fkatana", 0, 250, 0, 6.0F, 10);
 	public static ToolMaterial JO = EnumHelper.addToolMaterial("jo", 0, 131, 0, 3.0F, 0);
@@ -52,6 +58,10 @@ public class ModItems {
 		GameRegistry.registerItem(jo = new ItemJo("jo", JO), "jo");
 		GameRegistry.registerItem(katana = new ItemKatana("katana", KATANA), "katana");
 		GameRegistry.registerItem(katanaBladePiece = new ItemKatanaBladePiece("katana_blade_piece"), "katana_blade_piece");
+		GameRegistry.registerItem(kimonoHelmet = new ItemArmorKimono("kimono_helmet", CLOTH, "kimono", 0), "kimono_helmet");
+		GameRegistry.registerItem(kimonoChestplate = new ItemArmorKimono("kimono_chestplate", CLOTH, "kimono", 1), "kimono_chestplate");
+		GameRegistry.registerItem(kimonoLeggings = new ItemArmorKimono("kimono_leggings", CLOTH, "kimono", 2), "kimono_leggings");
+		GameRegistry.registerItem(kimonoBoots = new ItemArmorKimono("kimono_boots", CLOTH, "kimono", 3), "kimono_boots");
 		GameRegistry.registerItem(kunai = new ItemKunai("kunai"), "kunai");
 		GameRegistry.registerItem(rice = new ItemRice("rice", blockRicePlant, soil), "rice");
 		GameRegistry.registerItem(shuriken = new ItemShuriken("shuriken"), "shuriken");

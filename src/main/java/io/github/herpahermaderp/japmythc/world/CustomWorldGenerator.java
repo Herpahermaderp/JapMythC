@@ -55,7 +55,7 @@ public class CustomWorldGenerator implements IWorldGenerator {
 			int par2xCoord = posX + rand.nextInt(16);
 			int par2yCoord = rand.nextInt(90);
 			int par2zCoord = posZ + rand.nextInt(16);
-			(new WorldGenSakuraTree(false, 4, 1, 1, false)).generate(world, rand, par2xCoord, par2yCoord, par2zCoord);
+			(new WorldGenSakuraTree(false, 5, 1, 1, false)).generate(world, rand, par2xCoord, par2yCoord, par2zCoord);
 		}
 	}
 	

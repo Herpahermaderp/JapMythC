@@ -20,9 +20,10 @@ public class ModBlocks {
 	public static Block fusumaSR;
 	public static Block hitobashira;
 	public static Block ironSand;
+	public static Block jubokkoSapling;
 	public static Block logs;
 	public static Block leaves;
-	public static Block saplings;
+	public static Block sakuraSapling;
 	public static Block woods;
 	public static Block ricePlant;
 	
@@ -31,10 +32,11 @@ public class ModBlocks {
 		GameRegistry.registerBlock(bamboo = new BlockBamboo("bamboo_block", Material.wood), "bamboo_block");
 		GameRegistry.registerBlock(hitobashira = new BlockHitobashira("hitobashira", Material.rock), "hitobashira");
 		GameRegistry.registerBlock(ironSand = new BlockIronSand("iron_sand_block", Material.iron), "iron_sand_block");
+		GameRegistry.registerBlock(jubokkoSapling = new BlockJubokkoSapling("sapling_jubokko", Material.plants), ItemBlockModSaplings.class, "sapling_jubokko");
 		GameRegistry.registerBlock(leaves = new BlockModLeaves("leaves", Material.leaves), ItemBlockModLeaves.class, "leaves");
 		GameRegistry.registerBlock(logs = new BlockModLogs("log", Material.wood), ItemBlockModLogs.class, "log");
 		GameRegistry.registerBlock(ricePlant = new BlockRicePlant("rice_plant"), "rice_plant");
-		GameRegistry.registerBlock(saplings = new BlockModSaplings("sapling", Material.plants), ItemBlockModSaplings.class, "sapling");
+		GameRegistry.registerBlock(sakuraSapling = new BlockSakuraSapling("sapling_sakura", Material.plants), ItemBlockModSaplings.class, "sapling_sakura");
 		GameRegistry.registerBlock(woods = new BlockModWoods("planks", Material.wood), ItemBlockModWoods.class, "planks");
 		
 		if(Loader.isModLoaded("malisisdoors")) {

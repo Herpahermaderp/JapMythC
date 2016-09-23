@@ -1,43 +1,25 @@
 package io.github.herpahermaderp.japmythc.block;
 
-import java.util.List;
 import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
-import io.github.herpahermaderp.japmythc.world.gen.feature.WorldGenJubokkoTree;
 import io.github.herpahermaderp.japmythc.world.gen.feature.WorldGenSakuraTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BlockModSaplings extends BlockBush implements IGrowable {
-
-	protected IIcon[] icon = new IIcon[2];
-	public static final String[] types = { "jubokko", "sakura" };
-	private Minecraft mc = Minecraft.getMinecraft();
-	private World world = mc.theWorld;
-	private int posX;
-	private int posY;
-	private int posZ;
-	@SuppressWarnings("unused")
-	private int meta;
+public class BlockSakuraSapling extends BlockBush implements IGrowable {
 	
-	protected BlockModSaplings(String unlocalizedName, Material material) {
+	protected BlockSakuraSapling(String unlocalizedName, Material material) {
 		
 		setBlockName(unlocalizedName);
 		setBlockTextureName(Reference.ID + ":" + unlocalizedName);
@@ -57,17 +39,6 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
                 this.func_149879_c(world, par2, par3, par4, rand);
             }
         }
-    }
-	
-	@SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-        
-		if(meta > 2) {
-			
-			meta = 0;
-		}
-		
-		return this.icon[meta];
     }
 	
 	@SideOnly(Side.CLIENT)
@@ -92,51 +63,15 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 			
 			return;
 		}
-        
+		
 		int l = world.getBlockMetadata(par2, par3, par4) & 3;
 		Object object = rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
 
 		int i1 = 0;
 		int j1 = 0;
 		boolean flag = false;
-
-		switch (l) {
-                
-        case 0:
-            label78:
-
-            for (i1 = 0; i1 >= -1; --i1) {
-                    
-                for (j1 = 0; j1 >= -1; --j1) {
-                        
-                	if (this.isSameSapling(world, par2 + i1, par3, par4 + j1, 1) && this.isSameSapling(world, par2 + i1 + 1, par3, par4 + j1, 1) && this.isSameSapling(world, par2 + i1, par3, par4 + j1 + 1, 1) && this.isSameSapling(world, par2 + i1 + 1, par3, par4 + j1 + 1, 1)) {
-                			
-                        object = new WorldGenJubokkoTree(true);
-                        flag = true;
-                        System.out.println("running case 0a");
-                        break label78;
-                    }
-                }
-            }
-
-            if (!flag) {
-                    
-                j1 = 0;
-                i1 = 0;
-                object = new WorldGenJubokkoTree(true);
-                System.out.println("running case 0b");
-            }
-
-            break;
+        object = new WorldGenSakuraTree(true, 4, 1, 1, false);
             
-        case 1:
-        default:
-        	System.out.println("running case 1");
-        	object = new WorldGenSakuraTree(true, 4, 1, 1, false);
-            break;
-            
-        }
-
         Block block = Blocks.air;
 
         if (flag) {
@@ -174,30 +109,6 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 		return world.getBlock(blockPosX, blockPosY, blockPosZ) == this && (world.getBlockMetadata(blockPosX, blockPosY, blockPosZ) & 7) == par5;
     }
 	
-	public int damageDropped(int meta) {
-		
-        return meta;
-    }
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		
-        list.add(new ItemStack(item, 1, 0));
-        list.add(new ItemStack(item, 1, 1));
-    }
-	
-	@SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister register) {
-		
-		icon = new IIcon[types.length];
-		
-		for(int i = 0; i < 2; ++i) {
-			
-			icon[i] = register.registerIcon(this.getTextureName() + "_" + types[i]);
-		}
-    }
-	
 	@Override
 	public boolean func_149851_a(World world, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
 		
@@ -214,21 +125,5 @@ public class BlockModSaplings extends BlockBush implements IGrowable {
 	public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
 	
 		this.func_149879_c(world, p_149853_3_, p_149853_4_, p_149853_5_, rand);
-	}
-	
-	@Override
-	protected boolean canPlaceBlockOn(Block block) {
-		
-		int meta = world.getBlockMetadata(posX, posY, posZ);
-		
-		switch(meta) {
-		
-		case(0):
-			return block == Blocks.netherrack;
-		case(1):
-			return block == Blocks.grass || block == Blocks.dirt;
-		}
-		
-		return false;
 	}
 }

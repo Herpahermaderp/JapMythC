@@ -1,19 +1,18 @@
 package io.github.herpahermaderp.japmythc.item;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlockWithMetadata;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemBlock;
 
-public class ItemBlockModSaplings extends ItemBlockWithMetadata {
+public class ItemBlockModSaplings extends ItemBlock {
 
 	public ItemBlockModSaplings(Block block) {
 		
-		super(block, block);
+		super(block);
 	}
-	
+
 	@Override
-	public String getUnlocalizedName(ItemStack stack) {
+	public String getUnlocalizedName() {
 		
-		return this.getUnlocalizedName() + "_" + stack.getItemDamage();
+		return this.getUnlocalizedName();
 	}
 }

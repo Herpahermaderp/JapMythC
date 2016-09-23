@@ -11,7 +11,7 @@ public class CustomCreativeTabs {
 		@Override
 		public Item getTabIconItem() {
 			
-			return Item.getItemFromBlock(ModBlocks.saplings);
+			return Item.getItemFromBlock(ModBlocks.sakuraSapling);
 		}
 		
 		@Override
