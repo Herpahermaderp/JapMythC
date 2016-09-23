@@ -34,6 +34,10 @@ public class ModItems {
 	public static Item kimonoLeggings;
 	public static Item kimonoBoots;
 	public static Item kunai;
+	public static Item ninjaHelmet;
+	public static Item ninjaChesplate;
+	public static Item ninjaLeggings;
+	public static Item ninjaBoots;
 	public static Item rice;
 	public static Item shuriken;
 	public static Item spiritFlame;
@@ -62,6 +66,10 @@ public class ModItems {
 		GameRegistry.registerItem(kimonoChestplate = new ItemArmorKimono("kimono_chestplate", CLOTH, "kimono", 1), "kimono_chestplate");
 		GameRegistry.registerItem(kimonoLeggings = new ItemArmorKimono("kimono_leggings", CLOTH, "kimono", 2), "kimono_leggings");
 		GameRegistry.registerItem(kimonoBoots = new ItemArmorKimono("kimono_boots", CLOTH, "kimono", 3), "kimono_boots");
+		GameRegistry.registerItem(ninjaHelmet = new ItemArmorNinja("ninja_helmet", CLOTH, "ninja", 0), "ninja_helmet");
+		GameRegistry.registerItem(ninjaChesplate = new ItemArmorNinja("ninja_chestplate", CLOTH, "ninja", 1), "ninja_chestplate");
+		GameRegistry.registerItem(ninjaLeggings = new ItemArmorNinja("ninja_leggings", CLOTH, "ninja", 2), "ninja_leggings");
+		GameRegistry.registerItem(ninjaBoots = new ItemArmorNinja("ninja_boots", CLOTH, "ninja", 3), "ninja_boots");
 		GameRegistry.registerItem(kunai = new ItemKunai("kunai"), "kunai");
 		GameRegistry.registerItem(rice = new ItemRice("rice", blockRicePlant, soil), "rice");
 		GameRegistry.registerItem(shuriken = new ItemShuriken("shuriken"), "shuriken");
