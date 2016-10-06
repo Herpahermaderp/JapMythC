@@ -1,5 +1,6 @@
 package io.github.herpahermaderp.japmythc.item;
 
+import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
@@ -15,6 +16,7 @@ public class ItemArmorKimono extends ItemArmor {
 		this.textureName = textureName;
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.ID + ":" + unlocalizedName);
+		this.setCreativeTab(CustomCreativeTabs.tab);
 	}
 	
 	@Override

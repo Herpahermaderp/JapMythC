@@ -10,9 +10,9 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
-public class BlockRicePlant extends BlockModCrops {
+public class BlockSoyPlant extends BlockModCrops {
 
-	public BlockRicePlant(String unlocalizedName) {
+public BlockSoyPlant(String unlocalizedName) {
 		
 		setBlockName(unlocalizedName);
 		setBlockTextureName(Reference.ID + ":" + unlocalizedName);
@@ -27,7 +27,7 @@ public class BlockRicePlant extends BlockModCrops {
 	@Override
 	public Item getItemDropped(int meta, Random rand, int fortune) {
 		
-		return(ModItems.rice);
+		return(ModItems.soyBean);
 	}
 	
 	@Override

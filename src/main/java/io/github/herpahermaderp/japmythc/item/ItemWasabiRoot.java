@@ -5,13 +5,13 @@ import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.init.Blocks;
 
-public class ItemRice extends ItemBaseSeeds {
+public class ItemWasabiRoot extends ItemBaseSeeds {
 
-	public ItemRice(String unlocalizedName) {
+	public ItemWasabiRoot(String unlocalizedName) {
 		
-		super(ModBlocks.ricePlant, Blocks.farmland);
+		super(ModBlocks.wasabiPlant, Blocks.farmland);
 		setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CustomCreativeTabs.tab);
 		setTextureName(Reference.ID + ":" + unlocalizedName);
+		setCreativeTab(CustomCreativeTabs.tab);
 	}
 }

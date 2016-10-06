@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class BlockModCrops extends BlockBush implements IGrowable {
 
-	protected int maxGrowthStage = 2;
+	protected int maxGrowthStage = 7;
 	
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] icon;
@@ -93,9 +93,9 @@ public class BlockModCrops extends BlockBush implements IGrowable {
 		super.updateTick(world, parX, parY, parZ, rand);
 		int growStage = world.getBlockMetadata(parX, parY, parZ) + 1;
 		
-		if(growStage > 2) {
+		if(growStage > maxGrowthStage) {
 			
-			growStage = 2;
+			growStage = maxGrowthStage;
 		}
 		
 		world.setBlockMetadataWithNotify(parX, parY, parZ, growStage, 2);

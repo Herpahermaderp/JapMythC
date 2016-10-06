@@ -1,17 +1,16 @@
 package io.github.herpahermaderp.japmythc.item;
 
-import io.github.herpahermaderp.japmythc.block.ModBlocks;
 import io.github.herpahermaderp.japmythc.creativetab.CustomCreativeTabs;
 import io.github.herpahermaderp.japmythc.lib.Reference;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemFood;
 
-public class ItemRice extends ItemBaseSeeds {
+public class ItemCucumber extends ItemFood {
 
-	public ItemRice(String unlocalizedName) {
+	public ItemCucumber(String unlocalizedName) {
 		
-		super(ModBlocks.ricePlant, Blocks.farmland);
+		super(1, 0.3F, false);
 		setUnlocalizedName(unlocalizedName);
-		this.setCreativeTab(CustomCreativeTabs.tab);
 		setTextureName(Reference.ID + ":" + unlocalizedName);
+		setCreativeTab(CustomCreativeTabs.tab);
 	}
 }

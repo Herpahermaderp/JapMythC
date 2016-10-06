@@ -1,16 +1,29 @@
 < en_US.lang - English localization file >
+
+< Armor >
+item.kimono_helmet.name=Kimono Hat
+item.kimono_chestplate.name=Kimono Tunic
+item.kimono_leggings.name=Kimono Skirt
+item.kimono_boots.name=Kimono Slippers
+item.ninja_helmet.name=Ninja Mask
+item.ninja_chestplate.name=Ninja Tunic
+item.ninja_leggings.name=Ninja Pants
+item.ninja_boots.name=Ninja Shoes
+
 < Blocks >
 tile.bamboo_block.name=Bamboo Block
 tile.hitobashira.name=Hitobashira
 tile.iron_sand_block.name=Iron Sand
+tile.jubokko.name=Jubokko Logs
 tile.leaves_0.name=Jubokko Leaves
 tile.leaves_1.name=Sakura Leaves
-tile.log_0.name=Jubokko Logs
-tile.log_1.name=Sakura Logs
 tile.planks_0.name=Jubokko Planks
 tile.planks_1.name=Sakura Planks
-tile.sapling_0.name=Jubokko Sapling
-tile.sapling_1.name=Sakura Sapling
+tile.sakura.name=Sakura Logs
+tile.sapling_jubokko.name=Jubokko Sapling
+tile.sapling_sakura.name=Sakura Sapling
+tile.tatara.name=Tatara
+tile.tatara_active.name=block 182
 
 < Creative Tabs >
 itemGroup.tab=Tab
@@ -22,7 +35,11 @@ item.charm_0.name=Farmer Charm
 item.charm_1.name=Inugami Charm
 item.charm_2.name=Kappa Charm
 item.charm_3.name=Wolf Charm
+item.cucumber.name=Cucumber
+item.cucumber_seeds.name=Cucumber Seeds
 item.fusuma.name=Fusuma
+item.fusuma_sm.name=Fusuma: Under the Cherry Tree
+item.fusuma_sr.name=Fusuma: Sakura on the River
 item.jo.name=Jo
 item.katana.name=Katana
 item.katana_blade_piece.name=Katana Blade Piece
@@ -31,8 +48,11 @@ item.katana_spiritfire.name=Spirit Flame Katana
 item.kunai.name=Kunai
 item.rice.name=Rice
 item.shuriken.name=Shuriken
+item.soy_bean.name=Soy Bean
 item.spirit_flame.name=Spirit Flame
 item.tengu_fan.name=Tengu Fan
 item.tsuka.name=Tsuka
+item.wasabi_root.name=Wasabi Root
+item.washi.name=Washi
 item.wind_fan.name=Fan of Wind
 

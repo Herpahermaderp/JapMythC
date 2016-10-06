@@ -137,7 +137,7 @@ public class WorldGenJubokkoTree extends WorldGenerator {
 
                         if (block2.isAir(world, par3, par4 + k2, par5) || block2.isLeaves(world, par3, par4 + k2, par5))
                         {
-                            this.setBlockAndNotifyAdequately(world, par3, par4 + k2, par5, ModBlocks.logs, this.metaWood);
+                            this.setBlockAndNotifyAdequately(world, par3, par4 + k2, par5, ModBlocks.jubokkoLog, this.metaWood);
                         }
                     }
 

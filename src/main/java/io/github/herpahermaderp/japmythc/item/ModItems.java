@@ -2,13 +2,10 @@ package io.github.herpahermaderp.japmythc.item;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import io.github.herpahermaderp.japmythc.block.ModBlocks;
 import io.github.herpahermaderp.japmythc.block.descriptor.FusumaNormDescriptor;
 import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraManDescriptor;
 import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraRiverDescriptor;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -16,12 +13,11 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
 
-	public static Block blockRicePlant = ModBlocks.ricePlant;
-	public static Block soil = Blocks.farmland;
-	
 	public static Item bamboo;
 	public static Item bloomFan;
 	public static Item charm;
+	public static Item cucumber;
+	public static Item cucumberSeeds;
 	public static Item flameKatana;
 	public static Item fusuma;
 	public static Item fusumaSM;
@@ -40,10 +36,13 @@ public class ModItems {
 	public static Item ninjaBoots;
 	public static Item rice;
 	public static Item shuriken;
+	public static Item soyBean;
 	public static Item spiritFlame;
 	public static Item spiritFlameKatana;
 	public static Item tenguFan;
 	public static Item tsuka;
+	public static Item wasabiRoot;
+	public static Item washi;
 	public static Item windFan;
 	
 	public static ArmorMaterial CLOTH = EnumHelper.addArmorMaterial("cloth", 0, new int[] {0, 0, 0, 0}, 0);
@@ -58,6 +57,8 @@ public class ModItems {
 		GameRegistry.registerItem(bamboo = new ItemBamboo("bamboo"), "bamboo");
 		GameRegistry.registerItem(bloomFan = new ItemBloomFan("blooming_fan"), "blooming_fan");
 		GameRegistry.registerItem(charm = new ItemCharm("charm"), "charm");
+		GameRegistry.registerItem(cucumber = new ItemCucumber("cucumber"), "cucumber");
+		GameRegistry.registerItem(cucumberSeeds = new ItemCucumberSeeds("cucumber_seeds"), "cucumber_seeds");
 		GameRegistry.registerItem(flameKatana = new ItemFlameKatana("katana_fire", FKATANA), "katana_fire");
 		GameRegistry.registerItem(jo = new ItemJo("jo", JO), "jo");
 		GameRegistry.registerItem(katana = new ItemKatana("katana", KATANA), "katana");
@@ -71,12 +72,15 @@ public class ModItems {
 		GameRegistry.registerItem(ninjaLeggings = new ItemArmorNinja("ninja_leggings", CLOTH, "ninja", 2), "ninja_leggings");
 		GameRegistry.registerItem(ninjaBoots = new ItemArmorNinja("ninja_boots", CLOTH, "ninja", 3), "ninja_boots");
 		GameRegistry.registerItem(kunai = new ItemKunai("kunai"), "kunai");
-		GameRegistry.registerItem(rice = new ItemRice("rice", blockRicePlant, soil), "rice");
+		GameRegistry.registerItem(rice = new ItemRice("rice"), "rice");
 		GameRegistry.registerItem(shuriken = new ItemShuriken("shuriken"), "shuriken");
+		GameRegistry.registerItem(soyBean = new ItemSoyBean("soy_bean"), "soy_bean");
 		GameRegistry.registerItem(spiritFlame = new ItemSpiritFlame("spirit_flame"), "spirit_flame");
 		GameRegistry.registerItem(spiritFlameKatana = new ItemSpiritFlameKatana("katana_spiritfire", SFKATANA), "katana_spiritfire");
 		GameRegistry.registerItem(tenguFan = new ItemTenguFan("tengu_fan", FANTENGU), "tengu_fan");
 		GameRegistry.registerItem(tsuka = new ItemTsuka("tsuka"), "tsuka");
+		GameRegistry.registerItem(wasabiRoot = new ItemWasabiRoot("wasabi_root"), "wasabi_root");
+		GameRegistry.registerItem(washi = new ItemWashi("washi"), "washi");
 		GameRegistry.registerItem(windFan = new ItemWindFan("wind_fan"), "wind_fan");
 		
 		if(Loader.isModLoaded("malisisdoors")) {
@@ -91,9 +95,9 @@ public class ModItems {
 		
 		else {
 			
-			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma", Material.wood), "fusuma");
-			GameRegistry.registerItem(fusumaSM = new ItemFusumaSakuraMan("fusuma_sm", Material.wood), "fusuma_sm");
-			GameRegistry.registerItem(fusumaSR = new ItemFusumaSakuraRiver("fusuma_sr", Material.wood), "fusuma_sr");
+			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma_item", Material.wood), "fusuma_item");
+			GameRegistry.registerItem(fusumaSM = new ItemFusumaSakuraMan("fusuma_sm_item", Material.wood), "fusuma_sm_item");
+			GameRegistry.registerItem(fusumaSR = new ItemFusumaSakuraRiver("fusuma_sr_item", Material.wood), "fusuma_sr_item");
 		}
 	}
 }

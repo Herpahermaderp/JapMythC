@@ -130,7 +130,7 @@ public class WorldGenSakuraTree extends WorldGenAbstractTree {
 
                         if (block.isAir(world, par3, par4 + k1, par5) || block.isLeaves(world, par3, par4 + k1, par5))
                         {
-                            this.setBlockAndNotifyAdequately(world, par3, par4 + k1, par5, ModBlocks.logs, this.metaWood);
+                            this.setBlockAndNotifyAdequately(world, par3, par4 + k1, par5, ModBlocks.sakuraLog, this.metaWood);
 
                             if (this.vinesGrow && k1 > 0)
                             {
