@@ -2,6 +2,7 @@ package io.github.herpahermaderp.japmythc.inventory;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import io.github.herpahermaderp.japmythc.item.crafting.TataraRecipes;
 import io.github.herpahermaderp.japmythc.tileentity.TileEntityTatara;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -10,7 +11,6 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 
 public class ContainerTatara extends Container {
 
@@ -125,7 +125,7 @@ public class ContainerTatara extends Container {
 			
 			else if(par2 != 1 && par2 != 0) {
 				
-				if(FurnaceRecipes.smelting().getSmeltingResult(stack1) != null) {
+				if(TataraRecipes.smelting().getSmeltingResult(stack1) != null) {
 					
 					if(!this.mergeItemStack(stack1, 0, 1, false)) {
 						

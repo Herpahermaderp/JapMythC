@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.github.herpahermaderp.japmythc.block.BlockTatara;
+import io.github.herpahermaderp.japmythc.item.crafting.TataraRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +14,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
@@ -262,7 +262,7 @@ public void updateEntity() {
 	
 		else {
 		
-			ItemStack stack = FurnaceRecipes.smelting().getSmeltingResult(this.tataraItemStacks[0]);
+			ItemStack stack = TataraRecipes.smelting().getSmeltingResult(this.tataraItemStacks[0]);
 		
 			if(stack == null) {
 			
@@ -288,7 +288,7 @@ public void updateEntity() {
 		
 		if(this.canSmelt()) {
 			
-			ItemStack stack = FurnaceRecipes.smelting().getSmeltingResult(this.tataraItemStacks[0]);
+			ItemStack stack = TataraRecipes.smelting().getSmeltingResult(this.tataraItemStacks[0]);
 			
 			if(this.tataraItemStacks[2] == null) {
 				

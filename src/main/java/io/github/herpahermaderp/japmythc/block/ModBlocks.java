@@ -22,6 +22,7 @@ public class ModBlocks {
 	public static Block ironSand;
 	public static Block jubokkoLog;
 	public static Block jubokkoSapling;
+	public static Block kara;
 	public static Block leaves;
 	public static Block sakuraLog;
 	public static Block sakuraSapling;
@@ -40,6 +41,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(ironSand = new BlockIronSand("iron_sand_block", Material.iron), "iron_sand_block");
 		GameRegistry.registerBlock(jubokkoLog = new BlockJubokkoLog("jubokko", Material.wood), "jubokko");
 		GameRegistry.registerBlock(jubokkoSapling = new BlockJubokkoSapling("sapling_jubokko", Material.plants), ItemBlockModSaplings.class, "sapling_jubokko");
+		GameRegistry.registerBlock(kara = new BlockKara("kara", Material.iron), "kara");
 		GameRegistry.registerBlock(leaves = new BlockModLeaves("leaves", Material.leaves), ItemBlockModLeaves.class, "leaves");
 		GameRegistry.registerBlock(ricePlant = new BlockRicePlant("rice_plant"), "rice_plant");
 		GameRegistry.registerBlock(sakuraLog = new BlockSakuraLog("sakura", Material.wood), "sakura");

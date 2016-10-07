@@ -12,7 +12,7 @@ import io.github.herpahermaderp.japmythc.block.ModBlocks;
 import io.github.herpahermaderp.japmythc.entity.ModEntities;
 import io.github.herpahermaderp.japmythc.event.JapEventHandler;
 import io.github.herpahermaderp.japmythc.item.ModItems;
-import io.github.herpahermaderp.japmythc.item.ModRecipes;
+import io.github.herpahermaderp.japmythc.item.crafting.ModRecipes;
 import io.github.herpahermaderp.japmythc.network.GuiHandler;
 import io.github.herpahermaderp.japmythc.network.PacketDispatcher;
 import io.github.herpahermaderp.japmythc.tileentity.ModTileEntities;

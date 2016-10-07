@@ -1,7 +1,8 @@
-package io.github.herpahermaderp.japmythc.item;
+package io.github.herpahermaderp.japmythc.item.crafting;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import io.github.herpahermaderp.japmythc.block.ModBlocks;
+import io.github.herpahermaderp.japmythc.item.ModItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
