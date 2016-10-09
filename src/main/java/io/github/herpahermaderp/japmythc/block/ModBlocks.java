@@ -29,6 +29,7 @@ public class ModBlocks {
 	public static Block woods;
 	public static Block ricePlant;
 	public static Block soyPlant;
+	public static Block tatami;
 	public static Block tatara;
 	public static Block tatara_lit;
 	public static Block wasabiPlant;
@@ -47,6 +48,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(sakuraLog = new BlockSakuraLog("sakura", Material.wood), "sakura");
 		GameRegistry.registerBlock(sakuraSapling = new BlockSakuraSapling("sapling_sakura", Material.plants), ItemBlockModSaplings.class, "sapling_sakura");
 		GameRegistry.registerBlock(soyPlant = new BlockSoyPlant("soy_plant"), "soy_plant");
+		GameRegistry.registerBlock(tatami = new BlockTatami("tatami", Material.cloth), "tatami");
 		GameRegistry.registerBlock(tatara = new BlockTatara("tatara", Material.rock, false), "tatara");
 		GameRegistry.registerBlock(tatara_lit = new BlockTatara("tatara_active", Material.rock, true), "tatara_active");
 		GameRegistry.registerBlock(wasabiPlant = new BlockWasabiPlant("wasabi_plant"), "wasabi_plant");

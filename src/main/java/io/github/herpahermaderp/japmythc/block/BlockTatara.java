@@ -43,6 +43,9 @@ public class BlockTatara extends BlockContainer {
 			this.setCreativeTab(CustomCreativeTabs.tab);
 		}
 		
+		this.setHardness(12.0F);
+		this.setResistance(15.0F);
+		this.setHarvestLevel("pickaxe", 0);
 		this.isActive = isActive;
 	}
 	
@@ -55,10 +58,10 @@ public class BlockTatara extends BlockContainer {
 	public void onBlockAdded(World world, int x, int y, int z) {
 		
 		super.onBlockAdded(world, x, y, z);
-		this.func_149930_e(world, x, y, z);
+		this.blockFacing(world, x, y, z);
 	}
 	
-	private void func_149930_e(World world, int x, int y, int z) {
+	private void blockFacing(World world, int x, int y, int z) {
 		
 		if(!world.isRemote) {
 			
@@ -152,7 +155,7 @@ public class BlockTatara extends BlockContainer {
 	
 	public static void updateTataraBlockState(boolean par1, World world, int x, int y, int z) {
 		
-		int l = world.getBlockMetadata(x, y, z);
+		int direction = world.getBlockMetadata(x, y, z);
 		TileEntity te = world.getTileEntity(x, y, z);
 		
 		if(par1) {
@@ -164,7 +167,7 @@ public class BlockTatara extends BlockContainer {
 			world.setBlock(x, y, z, ModBlocks.tatara);
 		}
 		
-		world.setBlockMetadataWithNotify(x, y, z, l, 2);
+		world.setBlockMetadataWithNotify(x, y, z, direction, 2);
 		
 		if(te != null) {
 			
@@ -181,24 +184,24 @@ public class BlockTatara extends BlockContainer {
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack stack) {
 		
-		int l = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		int direction = MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		
-		if(l == 0) {
+		if(direction == 0) {
 			
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 		}
 		
-		if(l == 1) {
+		if(direction == 1) {
 			
 			world.setBlockMetadataWithNotify(x, y, z, 5, 2);
 		}
 		
-		if(l == 2) {
+		if(direction == 2) {
 			
 			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
 		
-		if(l == 3) {
+		if(direction == 3) {
 			
 			world.setBlockMetadataWithNotify(x, y, z, 4, 2);
 		}

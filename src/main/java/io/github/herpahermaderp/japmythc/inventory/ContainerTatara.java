@@ -27,15 +27,15 @@ public class ContainerTatara extends Container {
 		this.addSlotToContainer(new SlotFurnace(player.player, tatara, 2, 116, 35));
 		int i;
 		
-		for(i = 0; i < 3; i++) {
+		for(i = 0; i < 3; ++i) {
 			
-			for(int j = 0; j < 9; j++) {
+			for(int j = 0; j < 9; ++j) {
 				
 				this.addSlotToContainer(new Slot(player, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
 			}
 		}
 		
-		for(i = 0; i < 9; i++) {
+		for(i = 0; i < 9; ++i) {
 			
 			this.addSlotToContainer(new Slot(player, i, 8 + i * 18, 142));
 		}
@@ -53,7 +53,7 @@ public class ContainerTatara extends Container {
 		
 		super.detectAndSendChanges();
 		
-		for(int i = 0; i < this.crafters.size(); i++) {
+		for(int i = 0; i < this.crafters.size(); ++i) {
 			
 			ICrafting craft = (ICrafting)this.crafters.get(i);
 			

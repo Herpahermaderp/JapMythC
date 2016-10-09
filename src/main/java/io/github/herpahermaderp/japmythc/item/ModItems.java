@@ -37,12 +37,15 @@ public class ModItems {
 	public static Item ninjaLeggings;
 	public static Item ninjaBoots;
 	public static Item rice;
+	public static Item samagewa;
+	public static Item shinai;
 	public static Item shuriken;
 	public static Item soyBean;
 	public static Item spiritFlame;
 	public static Item spiritFlameKatana;
 	public static Item tamahagane;
 	public static Item tamahaganeIngot;
+	public static Item tatami;
 	public static Item tenguFan;
 	public static Item tsuka;
 	public static Item wasabiRoot;
@@ -55,6 +58,7 @@ public class ModItems {
 	public static ToolMaterial JO = EnumHelper.addToolMaterial("jo", 0, 131, 0, 3.0F, 0);
 	public static ToolMaterial KATANA = EnumHelper.addToolMaterial("katana", 0, 250, 0, 3.0F, 10);
 	public static ToolMaterial SFKATANA = EnumHelper.addToolMaterial("sfkatana", 0, 250, 0, 11.0F, 10);
+	public static ToolMaterial SHINAI = EnumHelper.addToolMaterial("shinai", 0, 131, 0, 3.0F, 0);
 	
 	public static final void init() {
 		
@@ -79,12 +83,15 @@ public class ModItems {
 		GameRegistry.registerItem(ninjaLeggings = new ItemArmorNinja("ninja_leggings", CLOTH, "ninja", 2), "ninja_leggings");
 		GameRegistry.registerItem(ninjaBoots = new ItemArmorNinja("ninja_boots", CLOTH, "ninja", 3), "ninja_boots");
 		GameRegistry.registerItem(rice = new ItemRice("rice"), "rice");
+		GameRegistry.registerItem(samagewa = new ItemSamagewa("samagewa"), "samagewa");
+		GameRegistry.registerItem(shinai = new ItemShinai("shinai", SHINAI), "shinai");
 		GameRegistry.registerItem(shuriken = new ItemShuriken("shuriken"), "shuriken");
 		GameRegistry.registerItem(soyBean = new ItemSoyBean("soy_bean"), "soy_bean");
 		GameRegistry.registerItem(spiritFlame = new ItemSpiritFlame("spirit_flame"), "spirit_flame");
 		GameRegistry.registerItem(spiritFlameKatana = new ItemSpiritFlameKatana("katana_spiritfire", SFKATANA), "katana_spiritfire");
 		GameRegistry.registerItem(tamahagane = new ItemTamahagane("tamahagane"), "tamahagane");
 		GameRegistry.registerItem(tamahaganeIngot = new ItemTamahaganeIngot("tamahagane_ingot"), "tamahagane_ingot");
+		GameRegistry.registerItem(tatami = new ItemTatami("tatami_mat"), "tatami_mat");
 		GameRegistry.registerItem(tenguFan = new ItemTenguFan("tengu_fan", FANTENGU), "tengu_fan");
 		GameRegistry.registerItem(tsuka = new ItemTsuka("tsuka"), "tsuka");
 		GameRegistry.registerItem(wasabiRoot = new ItemWasabiRoot("wasabi_root"), "wasabi_root");

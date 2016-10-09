@@ -25,6 +25,7 @@ public class TileEntityTatara extends TileEntity implements IInventory {
 	public int tataraBurnTime;
 	public int currentItemBurnTime;
 	private String customName;
+	public int speed = 400;
 	
 	@Override
 	public int getSizeInventory() {
@@ -169,7 +170,7 @@ public class TileEntityTatara extends TileEntity implements IInventory {
 	@SideOnly(Side.CLIENT)
 	public int getCookProgressScaled(int par1) {
 		
-		return this.tataraCookTime * par1 / 200;
+		return this.tataraCookTime * par1 / this.speed;
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -177,7 +178,7 @@ public class TileEntityTatara extends TileEntity implements IInventory {
 		
 		if(this.currentItemBurnTime == 0) {
 			
-			this.currentItemBurnTime = 200;
+			this.currentItemBurnTime = this.speed;
 		}
 		
 		return this.tataraBurnTime * par1 / this.currentItemBurnTime;
@@ -226,7 +227,7 @@ public void updateEntity() {
 					
 					++this.tataraCookTime;
 					
-					if(this.tataraCookTime == 200) {
+					if(this.tataraCookTime == this.speed) {
 						
 						this.tataraCookTime = 0;
 						this.smeltItem();
