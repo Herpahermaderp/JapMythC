@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemCharm extends Item {
 
-	public IIcon[] icons = new IIcon[4];
+	public IIcon[] icons = new IIcon[5];
 	
 	public ItemCharm(String unlocalizedName) {
 		

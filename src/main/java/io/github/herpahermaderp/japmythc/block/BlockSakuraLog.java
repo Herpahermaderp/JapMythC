@@ -46,6 +46,6 @@ public class BlockSakuraLog extends BlockRotatedPillar {
 	public void registerBlockIcons(IIconRegister register) {
 		
 		iconSide = register.registerIcon(this.getTextureName() + "_log");
-		iconTop = register.registerIcon(this.getTextureName() + "_logTop");
+		iconTop = register.registerIcon(this.getTextureName() + "_log_top");
 	}
 }

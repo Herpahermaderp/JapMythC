@@ -35,7 +35,7 @@ public BlockCucumberPlant(String unlocalizedName) {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 		
-		icon = new IIcon[maxGrowthStage+1];
+		icon = new IIcon[maxGrowthStage + 1];
 		icon[0] = register.registerIcon(getTextureName() + "_0");
 		icon[1] = register.registerIcon(getTextureName() + "_0");
 		icon[2] = register.registerIcon(getTextureName() + "_0");
