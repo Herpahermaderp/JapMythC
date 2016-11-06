@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 
 public class BlockPaperWallSolid extends Block {
 
-	IIcon[] icon = new IIcon[6];
+	IIcon[] icon = new IIcon[5];
 	
 	public BlockPaperWallSolid(String unlocalizedName, Material material) {
 		
@@ -47,7 +47,7 @@ public class BlockPaperWallSolid extends Block {
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		
-		for(int i = 0; i < 6; ++i) {
+		for(int i = 0; i < 5; ++i) {
 			
 			list.add(new ItemStack(item, 1, i));
 		}
@@ -57,7 +57,7 @@ public class BlockPaperWallSolid extends Block {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister reg) {
 		
-		for(int i = 0; i < 6; ++i) {
+		for(int i = 0; i < 5; ++i) {
 			
 			icon[i] = reg.registerIcon(getTextureName() + "_" + i);
 		}

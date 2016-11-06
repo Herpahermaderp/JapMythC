@@ -33,13 +33,13 @@ public class BlockJubokkoLog extends BlockRotatedPillar {
 	
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		
-		return AxisAlignedBB.getBoundingBox((double)((float)x + 1.0F), (double)y, (double)((float)z + 1.0F), (double)((float)(x + 1) - 1.0F), (double)((float)(y + 1) - 1.0F), (double)((float)(z + 1) - 1.0F));
+		return AxisAlignedBB.getBoundingBox((double)((float)x + 1.0F), (double)((float)y + 1.0F), (double)((float)z + 1.0F), (double)((float)x - 1.0F), (double)((float)y - 1.0F), (double)((float)z - 1.0F));
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		
-		return AxisAlignedBB.getBoundingBox((double)((float)x + 1.0F), (double)y, (double)((float)z + 1.0F), (double)((float)(x + 1) - 1.0F), (double)(y + 1), (double)((float)(z + 1) - 1.0F));
+		return AxisAlignedBB.getBoundingBox((double)((float)x + 1.0F), (double)((float)y + 1.0F), (double)((float)z + 1.0F), (double)((float)x - 1.0F), (double)((float)y - 1.0F), (double)((float)z - 1.0F));
 	}
 
 	@SideOnly(Side.CLIENT)

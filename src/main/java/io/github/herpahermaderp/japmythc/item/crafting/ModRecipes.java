@@ -21,11 +21,11 @@ public class ModRecipes {
 		GameRegistry.addRecipe(new ItemStack(ModItems.katana), new Object[] {"#", "#", "$", '#', ModItems.katanaBladePiece, '$', ModItems.tsuka});
 		GameRegistry.addRecipe(new ItemStack(ModItems.katanaBladePiece), new Object[] {"#", "$", "#", '#', ModItems.tamahaganeIngot, '$', ModItems.hochotetsuIngot});
 		GameRegistry.addRecipe(new ItemStack(ModItems.kunai), new Object[] {"#", "$", '#', ModItems.tamahaganeIngot, '$', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 1), new Object[] {"#$#", "#$#", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 2), new Object[] {"#$#", "###", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 3), new Object[] {"###", "#$#", "###", '#', ModItems.bamboo, '$', ModItems.washi});
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 4), new Object[] {"$#$", "###", "$#$", '#', ModItems.bamboo, '$', ModItems.washi});
-		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 5), new Object[] {"#$#", "$$$", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 0), new Object[] {"#$#", "#$#", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 1), new Object[] {"#$#", "###", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 2), new Object[] {"###", "#$#", "###", '#', ModItems.bamboo, '$', ModItems.washi});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 3), new Object[] {"$#$", "###", "$#$", '#', ModItems.bamboo, '$', ModItems.washi});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.paperWallSolid, 1, 4), new Object[] {"#$#", "$$$", "#$#", '#', ModItems.bamboo, '$', ModItems.washi});
 		GameRegistry.addRecipe(new ItemStack(ModItems.pocky), new Object[] {"#", "$", "$", '#', new ItemStack(Items.dye, 3), '$', Items.wheat});
 		GameRegistry.addRecipe(new ItemStack(ModItems.shinai), new Object[] {"#", "#", "$", '#', ModItems.bamboo, '$', ModItems.tsuka});
 		GameRegistry.addRecipe(new ItemStack(ModItems.shuriken), new Object[] {" # ", "# #", " # ", '#', ModItems.tamahaganeIngot});

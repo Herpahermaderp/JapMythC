@@ -8,6 +8,7 @@ import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraRiverDescr
 import io.github.herpahermaderp.japmythc.item.ItemBlockModLeaves;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModSaplings;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModWoods;
+import io.github.herpahermaderp.japmythc.item.ItemBlockPaperWallPane;
 import io.github.herpahermaderp.japmythc.item.ItemBlockPaperWallSolid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,6 +26,7 @@ public class ModBlocks {
 	public static Block jubokkoSapling;
 	public static Block kara;
 	public static Block leaves;
+	public static Block paperWallPane;
 	public static Block paperWallSolid;
 	public static Block ricePlant;
 	public static Block sakuraLog;
@@ -46,6 +48,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(jubokkoSapling = new BlockJubokkoSapling("sapling_jubokko", Material.plants), ItemBlockModSaplings.class, "sapling_jubokko");
 		GameRegistry.registerBlock(kara = new BlockKara("kara", Material.iron), "kara");
 		GameRegistry.registerBlock(leaves = new BlockModLeaves("leaves", Material.leaves), ItemBlockModLeaves.class, "leaves");
+		GameRegistry.registerBlock(paperWallPane = new BlockPaperWallPane("paper_wall_pane", "paper_wall_pane_side", Material.glass, false), ItemBlockPaperWallPane.class, "paper_wall_pane");
 		GameRegistry.registerBlock(paperWallSolid = new BlockPaperWallSolid("paper_wall_solid", Material.wood), ItemBlockPaperWallSolid.class, "paper_wall_solid");
 		GameRegistry.registerBlock(ricePlant = new BlockRicePlant("rice_plant"), "rice_plant");
 		GameRegistry.registerBlock(sakuraLog = new BlockSakuraLog("sakura", Material.wood), "sakura");
