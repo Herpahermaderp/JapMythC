@@ -3,7 +3,6 @@ package io.github.herpahermaderp.japmythc.block;
 import java.util.Random;
 
 import io.github.herpahermaderp.japmythc.item.ModItems;
-import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -15,7 +14,6 @@ public BlockFusumaSakuraMan(String unlocalizedName, Material material) {
 		
 		super(material);
 		setBlockName(unlocalizedName);
-		setBlockTextureName(Reference.ID + ":" + unlocalizedName);
 	}
 	
 	@Override

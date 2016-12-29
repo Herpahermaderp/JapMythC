@@ -27,9 +27,9 @@ public class CommonProxy {
 		
 		ModTileEntities.init();
 		ModBlocks.init();
+		ModEntities.init();
 		ModItems.init();
 		PacketDispatcher.registerPackets();
-		ModEntities.init();
 	}
 	
 	@EventHandler

@@ -16,7 +16,6 @@ public ItemFusumaSakuraMan(String unlocalizedName, Material material) {
 		
 		super(material);
 		setUnlocalizedName(unlocalizedName);
-		setTextureName(Reference.ID + ":" + unlocalizedName);
 	}
 	
 	@Override

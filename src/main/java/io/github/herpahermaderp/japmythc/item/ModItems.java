@@ -2,9 +2,7 @@ package io.github.herpahermaderp.japmythc.item;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import io.github.herpahermaderp.japmythc.block.descriptor.FusumaNormDescriptor;
-import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraManDescriptor;
-import io.github.herpahermaderp.japmythc.block.descriptor.FusumaSakuraRiverDescriptor;
+import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -18,6 +16,7 @@ public class ModItems {
 	public static Item charm;
 	public static Item cucumber;
 	public static Item cucumberSeeds;
+	public static Item customEgg;
 	public static Item flameKatana;
 	public static Item fusuma;
 	public static Item fusumaSM;
@@ -74,6 +73,7 @@ public class ModItems {
 		GameRegistry.registerItem(charm = new ItemCharm("charm"), "charm");
 		GameRegistry.registerItem(cucumber = new ItemCucumber("cucumber"), "cucumber");
 		GameRegistry.registerItem(cucumberSeeds = new ItemCucumberSeeds("cucumber_seeds"), "cucumber_seeds");
+		GameRegistry.registerItem(customEgg = new ItemCustomSpawnEgg("custom_spawn_egg"), "custom_spawn_egg");
 		GameRegistry.registerItem(flameKatana = new ItemFlameKatana("katana_fire", FKATANA), "katana_fire");
 		GameRegistry.registerItem(hochotetsu = new ItemHochoTetsu("hocho-tetsu"), "hocho-tetsu");
 		GameRegistry.registerItem(hochotetsuIngot = new ItemHochoTetsuIngot("hocho-tetsu_ingot"), "hocho-tetsu_ingot");
@@ -112,21 +112,11 @@ public class ModItems {
 		GameRegistry.registerItem(windFan = new ItemWindFan("wind_fan"), "wind_fan");
 		GameRegistry.registerItem(yamajijiiEye = new ItemYamajijiiEye("yamajijii_eye"), "yamajijii_eye");
 		
-		if(Loader.isModLoaded("malisisdoors")) {
+		if(!Loader.isModLoaded("malisisdoors")) {
 			
-			FusumaNormDescriptor fusumaNorm = new FusumaNormDescriptor("fusuma");
-			FusumaSakuraManDescriptor fusumaSakuraMan = new FusumaSakuraManDescriptor("fusuma_sr");
-			FusumaSakuraRiverDescriptor fusumaSakuraRiver = new FusumaSakuraRiverDescriptor("fusuma_sr");
-			fusuma = fusumaNorm.getItem();
-			fusumaSM = fusumaSakuraMan.getItem();
-			fusumaSR = fusumaSakuraRiver.getItem();
-		}
-		
-		else {
-			
-			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma_item", Material.wood), "fusuma_item");
-			GameRegistry.registerItem(fusumaSM = new ItemFusumaSakuraMan("fusuma_sm_item", Material.wood), "fusuma_sm_item");
-			GameRegistry.registerItem(fusumaSR = new ItemFusumaSakuraRiver("fusuma_sr_item", Material.wood), "fusuma_sr_item");
+			GameRegistry.registerItem(fusuma = new ItemFusumaNorm("fusuma_item", Material.wood).setTextureName(Reference.ID + ":fusuma_item"), "fusuma_item");
+			GameRegistry.registerItem(fusumaSM = new ItemFusumaSakuraMan("fusuma_sm_item", Material.wood).setTextureName(Reference.ID + ":fusuma_sm_item"), "fusuma_sm_item");
+			GameRegistry.registerItem(fusumaSR = new ItemFusumaSakuraRiver("fusuma_sr_item", Material.wood).setTextureName(Reference.ID + ":fusuma_sr_item"), "fusuma_sr_item");
 		}
 	}
 }

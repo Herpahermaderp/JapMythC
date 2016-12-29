@@ -21,7 +21,6 @@ public class EntityYamajijii extends EntityMob {
 		
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(45.0D);
-		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
 	}
 	

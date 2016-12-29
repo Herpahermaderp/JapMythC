@@ -16,7 +16,6 @@ public class ItemFusumaNorm extends ItemDoor {
 		
 		super(material);
 		setUnlocalizedName(unlocalizedName);
-		setTextureName(Reference.ID + ":" + unlocalizedName);
 	}
 	
 	@Override

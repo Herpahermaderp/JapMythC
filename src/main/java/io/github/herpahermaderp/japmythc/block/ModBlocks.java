@@ -10,6 +10,7 @@ import io.github.herpahermaderp.japmythc.item.ItemBlockModSaplings;
 import io.github.herpahermaderp.japmythc.item.ItemBlockModWoods;
 import io.github.herpahermaderp.japmythc.item.ItemBlockPaperWallPane;
 import io.github.herpahermaderp.japmythc.item.ItemBlockPaperWallSolid;
+import io.github.herpahermaderp.japmythc.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -68,16 +69,13 @@ public class ModBlocks {
 			fusumaNorm.register();
 			fusumaSakuraMan.register();
 			fusumaSakuraRiver.register();
-			fusuma = fusumaNorm.getBlock();
-			fusumaSM = fusumaSakuraMan.getBlock();
-			fusumaSR = fusumaSakuraRiver.getBlock();
 		}
 		
 		else {
 
-			GameRegistry.registerBlock(fusuma = new BlockFusumaNorm("fusuma", Material.wood), "fusuma");
-			GameRegistry.registerBlock(fusumaSM = new BlockFusumaSakuraMan("fusuma_sm", Material.wood), "fusuma_sm");
-			GameRegistry.registerBlock(fusumaSR = new BlockFusumaSakuraRiver("fusuma_sr", Material.wood), "fusuma_sr");
+			GameRegistry.registerBlock(fusuma = new BlockFusumaNorm("fusuma", Material.wood), "fusuma").setBlockTextureName(Reference.ID + ":fusuma");
+			GameRegistry.registerBlock(fusumaSM = new BlockFusumaSakuraMan("fusuma_sm", Material.wood), "fusuma_sm").setBlockTextureName(Reference.ID + ":fusuma_sm");
+			GameRegistry.registerBlock(fusumaSR = new BlockFusumaSakuraRiver("fusuma_sr", Material.wood), "fusuma_sr").setBlockTextureName(Reference.ID + ":fusuma_sr");
 		}
 	}
 }

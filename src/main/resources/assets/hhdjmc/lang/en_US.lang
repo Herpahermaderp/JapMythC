@@ -77,3 +77,7 @@ item.washi.name=Washi
 item.wind_fan.name=Fan of Wind
 item.yamajijii_eye.name=Yamajijii Eye
 
+< Spawn Eggs >
+item.hhdjmc.spawn_egg.name.entity.hhdjmc.Amanojaku.name = Spawn Amanojaku
+item.hhdjmc.spawn_egg.name.entity.hhdjmc.Jorogumo.name = Spawn Jorogumo
+item.hhdjmc.spawn_egg.name.entity.hhdjmc.Yamajijii.name = Spawn Yamajijii
