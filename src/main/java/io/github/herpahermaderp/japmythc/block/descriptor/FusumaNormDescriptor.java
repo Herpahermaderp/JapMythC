@@ -11,7 +11,7 @@ public class FusumaNormDescriptor extends DoorDescriptor {
 	public FusumaNormDescriptor(String unlocalizedName) {
 		
 		setName(unlocalizedName);
-		setTextureName(Reference.ID + ":" + unlocalizedName);
+		//setTextureName(Reference.ID + ":" + unlocalizedName);
 		setMovement(DoorRegistry.getMovement(SlidingDoorMovement.class));
 		setTab(CustomCreativeTabs.tab);
 	}

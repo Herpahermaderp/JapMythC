@@ -13,7 +13,7 @@ public class FusumaSakuraRiverDescriptor extends DoorDescriptor {
 	public FusumaSakuraRiverDescriptor(String unlocalizedName) {
 		
 		setName(unlocalizedName);
-		setTextureName(Reference.ID + ":" + unlocalizedName);
+		//setTextureName(Reference.ID + ":" + unlocalizedName);
 		setMovement(DoorRegistry.getMovement(SlidingDoorMovement.class));
 		setTab(CustomCreativeTabs.tab);
 	}
@@ -22,7 +22,7 @@ public class FusumaSakuraRiverDescriptor extends DoorDescriptor {
 		
 		if(world.getBlock(posX + 1, posY, posZ) == ModBlocks.fusumaSR) {
 			
-			setTextureName(getTextureName() + "_sm");
+			//setTextureName(getTextureName() + "_sm");
 		}
 	}
 }
